@@ -469,6 +469,8 @@ premap = {
     "aiWriteFloat": {"type": "aov_write_float"},
     "aiWriteColor": {"type": "aov_write_rgb"},
     "blendColors": {"type": "mix"},
+    # Arnold 5 add (bate)
+    "aiStandardSurface": {"type": "standard_surface"},
 }
 
 # Mappings keywords:
@@ -672,6 +674,7 @@ mappings = {
     "image": {
         "customColor": (0.36, 0.25, 0.38),
         "filename": replace_tx,
+        "filename": None,  # not to .tx
         "filter": ["closest", "bilinear", "bicubic", "smart_bicubic"],
         "mipmapBias": "mipmap_bias",
         "ignoreMissingTiles": (
@@ -1354,5 +1357,91 @@ mappings = {
         "beauty": "passthrough",
         "input": "aov_input",
         "aovName": "aov_name",
+    },
+    # Arnold 5 add (bate)
+    'standard_surface': {
+        'customColor': (0.05, 0.26, 0.09),
+        'base': {
+            'baseColor': 'base_color',
+            'diffuseRoughness': 'diffuse_roughness',
+            'directDiffuse': 'direct_diffuse',
+            'metalness': None,
+        },
+        'specular': {
+            'specularColor': 'specular_color',
+            'specularRoughness': 'specular_roughness',
+            'specularIOR': 'specular_IOR',
+            'specularAnisotropy': 'specular_anisotropy',
+            'specularRotation': 'specular_rotation',
+        },
+        'transmission': {
+            'transmissionColor': 'transmission_color',
+            'transmissionDepth': 'transmission_depth',
+            'transmissionScatter': 'transmission_scatter',
+            'transmissionScatterAnisotropy': 'transmission_scatter_anisotropy',
+            'transmissionDispersion': 'transmission_dispersion',
+            'transmissionExtraRoughness': 'transmission_extra_roughness',
+            'transmitAovs': 'transmit_aovs',
+        },
+        'subsurface': {
+            'subsurfaceColor': 'subsurface_color',
+            'subsurfaceRadius': 'subsurface_radius',
+            'subsurfaceScale': 'subsurface_scale',
+            'subsurfaceType': (
+                'subsurface_type',
+                ['diffusion', 'randomwalk', 'randomwalk_v2']),
+            'subsurfaceAnisotropy': 'subsurface_anisotropy',
+        },
+        'coat': {
+            'coatColor': 'coat_color',
+            'coatRoughness': 'coat_roughness',
+            'coatIOR': 'coat_IOR',
+            'coatAnisotropy': 'coat_anisotropy',
+            'coatRotation': 'coat_rotation',
+            'coatNormal': 'coat_normal',
+            '': 'coat_affect_color',  # maya not attr
+            '': 'coat_affect_roughness',  # maya not attr
+        },
+        'sheen': {
+            'sheenColor': 'sheen_color',
+            'sheenRoughness': 'sheen_roughness',
+        },
+        'emission': {
+            'emissionColor': 'emission_color',
+        },
+        'thinFilmThickness': 'thin_film_thickness',
+        'thinFilmIOR': 'thin_film_IOR',
+        'thinWalled': 'thin_walled',
+        'opacity': None,
+        'normalCamera': 'normal',
+        'tangent': None,
+        'matte': {
+            # katana not attr
+            'matteColor': '',
+            'matteOpacity': '',
+        },
+        'caustics': None,
+        'internalReflections': 'internal_reflections',
+        'exitToBackground': 'exit_to_background',
+        'indirectDiffuse': 'indirect_diffuse',
+        'indirectSpecular': 'indirect_specular',
+        'aovs': {
+            'aovId1': 'aov_id1',
+            'id1': None,
+            'aovId2': 'aov_id2',
+            'id2': None,
+            'aovId3': 'aov_id3',
+            'id3': None,
+            'aovId4': 'aov_id4',
+            'id4': None,
+            'aovId5': 'aov_id5',
+            'id5': None,
+            'aovId6': 'aov_id6',
+            'id6': None,
+            'aovId7': 'aov_id7',
+            'id7': None,
+            'aovId8': 'aov_id8',
+            'id8': None,
+        }
     },
 }

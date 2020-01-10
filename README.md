@@ -11,6 +11,9 @@ Easily copy shading nodes from [Maya](http://www.autodesk.com/products/maya/over
   alLayerColor, alLayerFloat, alRemapColor, alRemapFloat, alSurface, alSwitchColor, alSwitchFloat,
   alTriplanar, blendColors, bump2d, clamp, luminance, ramp, samplerInfo
 
+- #### [Arnold 5](https://www.arnoldrenderer.com/arnold/) (bate)
+  Add Supported nodes: aiStandardSurface 
+
 - #### [RenderMan 21.7+](https://renderman.pixar.com/)
   Supported nodes: aaOceanPrmanShader, PxrAdjustNormal, PxrAovLight, PxrAttribute,
   PxrBackgroundDisplayFilter, PxrBackgroundSampleFilter, PxrBakePointCloud, PxrBakeTexture,
