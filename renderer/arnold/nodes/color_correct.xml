@@ -1,0 +1,263 @@
+<node baseType="ArnoldShadingNode" name="color_correct" selected="true" type="ArnoldShadingNode">
+    <port name="input" type="in">
+    <metadata>
+    </metadata>
+    </port>
+    <port name="input.r" type="in">
+    <tags>
+        <tag name="float or rgb or rgba or vector or vector2"/>
+    </tags>
+    <metadata>
+    </metadata>
+    </port>
+    <port name="input.g" type="in">
+    <tags>
+        <tag name="float or rgb or rgba or vector or vector2"/>
+    </tags>
+    <metadata>
+    </metadata>
+    </port>
+    <port name="input.b" type="in">
+    <tags>
+        <tag name="float or rgb or rgba or vector or vector2"/>
+    </tags>
+    <metadata>
+    </metadata>
+    </port>
+    <port name="input.a" type="in">
+    <tags>
+        <tag name="float or rgb or rgba or vector or vector2"/>
+    </tags>
+    <metadata>
+    </metadata>
+    </port>
+    <port name="alpha_is_luminance" type="in">
+    <metadata>
+    </metadata>
+    </port>
+    <port name="alpha_multiply" type="in">
+    <metadata>
+    </metadata>
+    </port>
+    <port name="alpha_add" type="in">
+    <metadata>
+    </metadata>
+    </port>
+    <port name="invert" type="in">
+    <metadata>
+    </metadata>
+    </port>
+    <port name="invert_alpha" type="in">
+    <metadata>
+    </metadata>
+    </port>
+    <port name="gamma" type="in">
+    <metadata>
+    </metadata>
+    </port>
+    <port name="hue_shift" type="in">
+    <metadata>
+    </metadata>
+    </port>
+    <port name="saturation" type="in">
+    <metadata>
+    </metadata>
+    </port>
+    <port name="contrast" type="in">
+    <metadata>
+    </metadata>
+    </port>
+    <port name="contrast_pivot" type="in">
+    <metadata>
+    </metadata>
+    </port>
+    <port name="exposure" type="in">
+    <metadata>
+    </metadata>
+    </port>
+    <port name="multiply" type="in">
+    <metadata>
+    </metadata>
+    </port>
+    <port name="multiply.r" type="in">
+    <tags>
+        <tag name="float or rgb or rgba or vector or vector2"/>
+    </tags>
+    <metadata>
+    </metadata>
+    </port>
+    <port name="multiply.g" type="in">
+    <tags>
+        <tag name="float or rgb or rgba or vector or vector2"/>
+    </tags>
+    <metadata>
+    </metadata>
+    </port>
+    <port name="multiply.b" type="in">
+    <tags>
+        <tag name="float or rgb or rgba or vector or vector2"/>
+    </tags>
+    <metadata>
+    </metadata>
+    </port>
+    <port name="add" type="in">
+    <metadata>
+    </metadata>
+    </port>
+    <port name="add.r" type="in">
+    <tags>
+        <tag name="float or rgb or rgba or vector or vector2"/>
+    </tags>
+    <metadata>
+    </metadata>
+    </port>
+    <port name="add.g" type="in">
+    <tags>
+        <tag name="float or rgb or rgba or vector or vector2"/>
+    </tags>
+    <metadata>
+    </metadata>
+    </port>
+    <port name="add.b" type="in">
+    <tags>
+        <tag name="float or rgb or rgba or vector or vector2"/>
+    </tags>
+    <metadata>
+    </metadata>
+    </port>
+    <port name="mask" type="in">
+    <metadata>
+    </metadata>
+    </port>
+    <port name="out" type="out">
+    <tags>
+        <tag name="rgba"/>
+    </tags>
+    </port>
+    <port name="out.r" type="out">
+    <tags>
+        <tag name="float"/>
+    </tags>
+    </port>
+    <port name="out.g" type="out">
+    <tags>
+        <tag name="float"/>
+    </tags>
+    </port>
+    <port name="out.b" type="out">
+    <tags>
+        <tag name="float"/>
+    </tags>
+    </port>
+    <port name="out.a" type="out">
+    <tags>
+        <tag name="float"/>
+    </tags>
+    </port>
+    <group_parameter name="color_correct">
+    <string_parameter name="name" value="color_correct"/>
+    <string_parameter name="nodeType" value="color_correct"/>
+    <string_parameter name="__lastValue" value="mwrm7e34e3d4stjpcvf6ehcjju27kwmm2myipuosbpvnrd57yrfmFalse"/>
+    <string_parameter name="__showHiddenParams" value="False"/>
+    <group_parameter name="parameters">
+        <group_parameter name="input">
+        <number_parameter name="enable" value="0"/>
+        <numberarray_parameter name="value" size="4" tupleSize="4">
+            <number_parameter name="i0" value="0"/>
+            <number_parameter name="i1" value="0"/>
+            <number_parameter name="i2" value="0"/>
+            <number_parameter name="i3" value="1"/>
+        </numberarray_parameter>
+        <string_parameter name="type" value="FloatAttr"/>
+        </group_parameter>
+        <group_parameter name="gamma">
+        <number_parameter name="enable" value="0"/>
+        <number_parameter name="value" value="1"/>
+        <string_parameter name="type" value="FloatAttr"/>
+        </group_parameter>
+        <group_parameter name="hue_shift">
+        <number_parameter name="enable" value="0"/>
+        <number_parameter name="value" value="0"/>
+        <string_parameter name="type" value="FloatAttr"/>
+        </group_parameter>
+        <group_parameter name="saturation">
+        <number_parameter name="enable" value="0"/>
+        <number_parameter name="value" value="1"/>
+        <string_parameter name="type" value="FloatAttr"/>
+        </group_parameter>
+        <group_parameter name="contrast">
+        <number_parameter name="enable" value="0"/>
+        <number_parameter name="value" value="1"/>
+        <string_parameter name="type" value="FloatAttr"/>
+        </group_parameter>
+        <group_parameter name="contrast_pivot">
+        <number_parameter name="enable" value="0"/>
+        <number_parameter name="value" value="0.18"/>
+        <string_parameter name="type" value="FloatAttr"/>
+        </group_parameter>
+        <group_parameter name="exposure">
+        <number_parameter name="enable" value="0"/>
+        <number_parameter name="value" value="0"/>
+        <string_parameter name="type" value="FloatAttr"/>
+        </group_parameter>
+        <group_parameter name="multiply">
+        <number_parameter name="enable" value="0"/>
+        <numberarray_parameter name="value" size="3" tupleSize="3">
+            <number_parameter name="i0" value="1"/>
+            <number_parameter name="i1" value="1"/>
+            <number_parameter name="i2" value="1"/>
+        </numberarray_parameter>
+        <string_parameter name="type" value="FloatAttr"/>
+        </group_parameter>
+        <group_parameter name="add">
+        <number_parameter name="enable" value="0"/>
+        <numberarray_parameter name="value" size="3" tupleSize="3">
+            <number_parameter name="i0" value="0"/>
+            <number_parameter name="i1" value="0"/>
+            <number_parameter name="i2" value="0"/>
+        </numberarray_parameter>
+        <string_parameter name="type" value="FloatAttr"/>
+        </group_parameter>
+        <group_parameter name="mask">
+        <number_parameter name="enable" value="0"/>
+        <number_parameter name="value" value="1"/>
+        <string_parameter name="type" value="FloatAttr"/>
+        </group_parameter>
+        <group_parameter name="alpha_is_luminance">
+        <number_parameter name="enable" value="0"/>
+        <number_parameter name="value" value="0"/>
+        <string_parameter name="type" value="IntAttr"/>
+        </group_parameter>
+        <group_parameter name="alpha_multiply">
+        <number_parameter name="enable" value="0"/>
+        <number_parameter name="value" value="1"/>
+        <string_parameter name="type" value="FloatAttr"/>
+        </group_parameter>
+        <group_parameter name="alpha_add">
+        <number_parameter name="enable" value="0"/>
+        <number_parameter name="value" value="0"/>
+        <string_parameter name="type" value="FloatAttr"/>
+        </group_parameter>
+        <group_parameter name="invert">
+        <number_parameter name="enable" value="0"/>
+        <number_parameter name="value" value="0"/>
+        <string_parameter name="type" value="IntAttr"/>
+        </group_parameter>
+        <group_parameter name="invert_alpha">
+        <number_parameter name="enable" value="0"/>
+        <number_parameter name="value" value="0"/>
+        <string_parameter name="type" value="IntAttr"/>
+        </group_parameter>
+        <group_parameter name="__unused"/>
+    </group_parameter>
+    <group_parameter name="publicInterface">
+        <string_parameter name="namePrefix" value=""/>
+        <string_parameter name="pagePrefix" value=""/>
+        <string_parameter name="nameRegExFind" value=""/>
+        <string_parameter name="nameRegExReplace" value=""/>
+        <string_parameter name="pageRegExFind" value=""/>
+        <string_parameter name="pageRegExReplace" value=""/>
+    </group_parameter>
+    <string_parameter name="forceRefresh" value=""/>
+    </group_parameter>
+</node>

@@ -1,0 +1,224 @@
+<node baseType="ArnoldShadingNode" name="normal_map" selected="true" type="ArnoldShadingNode">
+    <port name="input" type="in">
+    <metadata>
+        <entry key="parameterIndex" value="1"/>
+    </metadata>
+    </port>
+    <port color="0.2471 0.3686 0.5725" name="input.x" type="in">
+    <tags>
+        <tag name="float or rgb or rgba or vector or vector2"/>
+    </tags>
+    <metadata>
+        <entry key="parameterIndex" value="2"/>
+    </metadata>
+    </port>
+    <port color="0.2471 0.3686 0.5725" name="input.y" type="in">
+    <tags>
+        <tag name="float or rgb or rgba or vector or vector2"/>
+    </tags>
+    <metadata>
+        <entry key="parameterIndex" value="3"/>
+    </metadata>
+    </port>
+    <port color="0.2471 0.3686 0.5725" name="input.z" type="in">
+    <tags>
+        <tag name="float or rgb or rgba or vector or vector2"/>
+    </tags>
+    <metadata>
+        <entry key="parameterIndex" value="4"/>
+    </metadata>
+    </port>
+    <port name="tangent" type="in">
+    <metadata>
+        <entry key="parameterIndex" value="5"/>
+    </metadata>
+    </port>
+    <port color="0.2471 0.3686 0.5725" name="tangent.x" type="in">
+    <tags>
+        <tag name="float or rgb or rgba or vector or vector2"/>
+    </tags>
+    <metadata>
+        <entry key="parameterIndex" value="6"/>
+    </metadata>
+    </port>
+    <port color="0.2471 0.3686 0.5725" name="tangent.y" type="in">
+    <tags>
+        <tag name="float or rgb or rgba or vector or vector2"/>
+    </tags>
+    <metadata>
+        <entry key="parameterIndex" value="7"/>
+    </metadata>
+    </port>
+    <port color="0.2471 0.3686 0.5725" name="tangent.z" type="in">
+    <tags>
+        <tag name="float or rgb or rgba or vector or vector2"/>
+    </tags>
+    <metadata>
+        <entry key="parameterIndex" value="8"/>
+    </metadata>
+    </port>
+    <port name="normal" type="in">
+    <metadata>
+        <entry key="parameterIndex" value="9"/>
+    </metadata>
+    </port>
+    <port color="0.2471 0.3686 0.5725" name="normal.x" type="in">
+    <tags>
+        <tag name="float or rgb or rgba or vector or vector2"/>
+    </tags>
+    <metadata>
+        <entry key="parameterIndex" value="10"/>
+    </metadata>
+    </port>
+    <port color="0.2471 0.3686 0.5725" name="normal.y" type="in">
+    <tags>
+        <tag name="float or rgb or rgba or vector or vector2"/>
+    </tags>
+    <metadata>
+        <entry key="parameterIndex" value="11"/>
+    </metadata>
+    </port>
+    <port color="0.2471 0.3686 0.5725" name="normal.z" type="in">
+    <tags>
+        <tag name="float or rgb or rgba or vector or vector2"/>
+    </tags>
+    <metadata>
+        <entry key="parameterIndex" value="12"/>
+    </metadata>
+    </port>
+    <port name="order" type="in">
+    <metadata>
+        <entry key="parameterIndex" value="13"/>
+    </metadata>
+    </port>
+    <port name="invert_x" type="in">
+    <metadata>
+        <entry key="parameterIndex" value="14"/>
+    </metadata>
+    </port>
+    <port name="invert_y" type="in">
+    <metadata>
+        <entry key="parameterIndex" value="15"/>
+    </metadata>
+    </port>
+    <port name="invert_z" type="in">
+    <metadata>
+        <entry key="parameterIndex" value="16"/>
+    </metadata>
+    </port>
+    <port name="color_to_signed" type="in">
+    <metadata>
+        <entry key="parameterIndex" value="17"/>
+    </metadata>
+    </port>
+    <port name="tangent_space" type="in">
+    <metadata>
+        <entry key="parameterIndex" value="18"/>
+    </metadata>
+    </port>
+    <port name="strength" type="in">
+    <metadata>
+        <entry key="parameterIndex" value="19"/>
+    </metadata>
+    </port>
+    <port color="0.4157 0.4431 0.5882" name="out" type="out">
+    <tags>
+        <tag name="vector"/>
+    </tags>
+    </port>
+    <port color="0.2471 0.3686 0.5725" name="out.x" type="out">
+    <tags>
+        <tag name="float"/>
+    </tags>
+    </port>
+    <port color="0.2471 0.3686 0.5725" name="out.y" type="out">
+    <tags>
+        <tag name="float"/>
+    </tags>
+    </port>
+    <port color="0.2471 0.3686 0.5725" name="out.z" type="out">
+    <tags>
+        <tag name="float"/>
+    </tags>
+    </port>
+    <group_parameter name="normal_map">
+    <string_parameter name="name" value="normal_map"/>
+    <string_parameter name="nodeType" value="normal_map"/>
+    <string_parameter name="__lastValue" value="oxahlbnar5qzbg4qqvcrkbaj6ebcjhuoepzruq5ex7e2xhov4ynmFalse"/>
+    <string_parameter name="__showHiddenParams" value="False"/>
+    <group_parameter name="parameters">
+        <group_parameter name="input">
+        <number_parameter name="enable" value="0"/>
+        <numberarray_parameter name="value" size="3" tupleSize="3">
+            <number_parameter name="i0" value="0"/>
+            <number_parameter name="i1" value="0"/>
+            <number_parameter name="i2" value="0"/>
+        </numberarray_parameter>
+        <string_parameter name="type" value="FloatAttr"/>
+        </group_parameter>
+        <group_parameter name="tangent">
+        <number_parameter name="enable" value="0"/>
+        <numberarray_parameter name="value" size="3" tupleSize="3">
+            <number_parameter name="i0" value="0"/>
+            <number_parameter name="i1" value="0"/>
+            <number_parameter name="i2" value="0"/>
+        </numberarray_parameter>
+        <string_parameter name="type" value="FloatAttr"/>
+        </group_parameter>
+        <group_parameter name="normal">
+        <number_parameter name="enable" value="0"/>
+        <numberarray_parameter name="value" size="3" tupleSize="3">
+            <number_parameter name="i0" value="0"/>
+            <number_parameter name="i1" value="0"/>
+            <number_parameter name="i2" value="0"/>
+        </numberarray_parameter>
+        <string_parameter name="type" value="FloatAttr"/>
+        </group_parameter>
+        <group_parameter name="order">
+        <number_parameter name="enable" value="0"/>
+        <string_parameter name="value" value="XYZ"/>
+        <string_parameter name="type" value="StringAttr"/>
+        </group_parameter>
+        <group_parameter name="invert_x">
+        <number_parameter name="enable" value="0"/>
+        <number_parameter name="value" value="0"/>
+        <string_parameter name="type" value="IntAttr"/>
+        </group_parameter>
+        <group_parameter name="invert_y">
+        <number_parameter name="enable" value="0"/>
+        <number_parameter name="value" value="0"/>
+        <string_parameter name="type" value="IntAttr"/>
+        </group_parameter>
+        <group_parameter name="invert_z">
+        <number_parameter name="enable" value="0"/>
+        <number_parameter name="value" value="0"/>
+        <string_parameter name="type" value="IntAttr"/>
+        </group_parameter>
+        <group_parameter name="color_to_signed">
+        <number_parameter name="enable" value="0"/>
+        <number_parameter name="value" value="1"/>
+        <string_parameter name="type" value="IntAttr"/>
+        </group_parameter>
+        <group_parameter name="tangent_space">
+        <number_parameter name="enable" value="0"/>
+        <number_parameter name="value" value="1"/>
+        <string_parameter name="type" value="IntAttr"/>
+        </group_parameter>
+        <group_parameter name="strength">
+        <number_parameter name="enable" value="0"/>
+        <number_parameter name="value" value="1"/>
+        <string_parameter name="type" value="FloatAttr"/>
+        </group_parameter>
+        <group_parameter name="__unused"/>
+    </group_parameter>
+    <group_parameter name="publicInterface">
+        <string_parameter name="namePrefix" value=""/>
+        <string_parameter name="pagePrefix" value=""/>
+        <string_parameter name="nameRegExFind" value=""/>
+        <string_parameter name="nameRegExReplace" value=""/>
+        <string_parameter name="pageRegExFind" value=""/>
+        <string_parameter name="pageRegExReplace" value=""/>
+    </group_parameter>
+    <string_parameter name="forceRefresh" value=""/>
+    </group_parameter>
+</node>

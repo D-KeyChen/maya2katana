@@ -12,7 +12,7 @@ Easily copy shading nodes from [Maya](http://www.autodesk.com/products/maya/over
   alTriplanar, blendColors, bump2d, clamp, luminance, ramp, samplerInfo
 
 - #### [Arnold 5](https://www.arnoldrenderer.com/arnold/) (bate)
-  Add Supported nodes: aiStandardSurface, aiImage(and MayaFile)
+   Supported nodes: aiStandardSurface, aiImage(and MayaFile), aiColorCorrect, aiNormalMap
 
 - #### [RenderMan 21.7+](https://renderman.pixar.com/)
   Supported nodes: aaOceanPrmanShader, PxrAdjustNormal, PxrAovLight, PxrAttribute,
@@ -70,7 +70,7 @@ maya2katana.copy()
 
 ### Arnold 5 escription
 Description currently supported: (当前支持的描述)
- 1. Maya File to aiImage
+ 1. Maya File to aiImage (Maya文件转为aiImage)
     - Supported attributes (支持的属性): Image Name, Color Space, Color Gain, Color Offset
  2. aiImage add Color Space support
 

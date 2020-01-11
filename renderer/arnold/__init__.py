@@ -509,6 +509,8 @@ premap = {
     "aiStandardSurface": {"type": "standard_surface"},
     "aiImage": {"preprocess": preprocess_image},
     "file": {"preprocess": preprocess_file},
+    "aiColorCorrect": {"type": "color_correct"},
+    "aiNormalMap": {"type": "normal_map"},
 }
 
 # Mappings keywords:
@@ -1512,5 +1514,42 @@ mappings = {
         "swapSt": "swap_st",
         "singleChannel": "single_channel",
         "startChannel": "start_channel",
-    }
+    },
+    "color_correct": {
+        "customColor": (0.03, 0.35, 0.5),
+        "input": None,
+        "mask": None,
+        "colorCorrection": {
+            "gamma": None,
+            "hueShift": "hue_shift",
+            "saturation": None,
+            "contrast": None,
+            "contrastPivot": "contrast_pivot",
+            "exposure": None,
+            "multiply": None,
+            "add": None,
+            "invert": None,
+        },
+        "alpha": {
+            "alphaIsLuminance": "alpha_is_luminance",
+            "alphaMultiply": "alpha_multiply",
+            "alphaAdd": "alpha_add",
+            "invertAlpha": "invert_alpha",
+        },
+    },
+    "normal_map": {
+        "customColor": (0.03, 0.35, 0.5),
+        "input": None,
+        "strength": None,
+        "tangent": None,
+        "normal": None,
+        "order": (
+            "order", 
+            ["XYZ", "XZY", "YXZ", "YZX", "ZXY", "ZYX"]),
+        "invertX": "invert_x",
+        "invertY": "invert_y",
+        "invertZ": "invert_z",
+        "colorToSigned": "color_to_signed",
+        "tangentSpace": "tangent_space",
+    },
 }
