@@ -12,7 +12,7 @@ Easily copy shading nodes from [Maya](http://www.autodesk.com/products/maya/over
   alTriplanar, blendColors, bump2d, clamp, luminance, ramp, samplerInfo
 
 - #### [Arnold 5](https://www.arnoldrenderer.com/arnold/) (bate)
-  Add Supported nodes: aiStandardSurface 
+  Add Supported nodes: aiStandardSurface, aiImage(and MayaFile)
 
 - #### [RenderMan 21.7+](https://renderman.pixar.com/)
   Supported nodes: aaOceanPrmanShader, PxrAdjustNormal, PxrAovLight, PxrAttribute,
@@ -67,6 +67,17 @@ maya2katana.copy()
 
 3. Switch to Katana and paste the nodes
 ![Resulting Katana shading network](doc/katana.jpg)
+
+### Arnold 5 escription
+Description currently supported: (当前支持的描述)
+ 1. Maya File to aiImage
+    - Supported attributes (支持的属性): Image Name, Color Space, Color Gain, Color Offset
+ 2. aiImage add Color Space support
+
+Currently existing problems: (当前存在的问题)
+ - Does not convert image format to .TX (不将图像格式转换为 .TX)
+ - unable to automatically connect Material to NetworkMaterial (无法自动连接材质到网络材质)
+
 
 ### Integrations
 

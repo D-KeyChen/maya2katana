@@ -421,6 +421,43 @@ def override_material_params(key, value):
     return value
 
 
+def preprocess_image(node): # Arnold 5 add (bate)
+    """
+    Is the image Arnold 5
+    """
+    nodes = {}
+    node_name = node["name"]
+    if node["attributes"]["swrap"] == 5:
+        node["attributes"]["swrap"] = 0
+    if node["attributes"]["twrap"] == 5:
+        node["attributes"]["twrap"] = 0
+    if float(cmds.pluginInfo('mtoa', query = True, version = True)[0]) >= 2.0:
+        node["type"] = "image_ar5"
+        if node["attributes"]["colorSpace"] == "Raw":
+            node["attributes"]["colorSpace"] = "linear"
+        else:
+            node["attributes"]["colorSpace"] = "auto"
+    else:
+        node["type"] = "image"
+    nodes[node_name] = node
+    return nodes
+
+
+def preprocess_file(node):
+    """
+    file to image
+    """
+    nodes = {}
+    node_name = node["name"]
+    node["attributes"]["filename"] = node["attributes"]["fileTextureName"]
+    node["attributes"]["filter"] = 3
+    node["attributes"]["multiply"] = node["attributes"]["colorGain"]
+    node["attributes"]["offset"] = node["attributes"]["colorOffset"] # Existence of bug
+    node["type"] = "image_ar5"
+    nodes[node_name] = node
+    return nodes
+
+
 # Preprocess keywords:
 # - preprocess
 # - postprocess (postprocess at level 0)
@@ -442,7 +479,6 @@ premap = {
     "alInputScalar": {},
     "alInputVector": {},
     "luminance": {},
-    "aiImage": {"type": "image"},
     "alCombineColor": {},
     "alCombineFloat": {},
     "alCurvature": {},
@@ -471,6 +507,8 @@ premap = {
     "blendColors": {"type": "mix"},
     # Arnold 5 add (bate)
     "aiStandardSurface": {"type": "standard_surface"},
+    "aiImage": {"preprocess": preprocess_image},
+    "file": {"preprocess": preprocess_file},
 }
 
 # Mappings keywords:
@@ -674,7 +712,6 @@ mappings = {
     "image": {
         "customColor": (0.36, 0.25, 0.38),
         "filename": replace_tx,
-        "filename": None,  # not to .tx
         "filter": ["closest", "bilinear", "bicubic", "smart_bicubic"],
         "mipmapBias": "mipmap_bias",
         "ignoreMissingTiles": (
@@ -1444,4 +1481,36 @@ mappings = {
             'id8': None,
         }
     },
+    "image_ar5": {
+        'customColor': (0.36, 0.25, 0.38),
+        "filename": None,
+        "useFrameExtension": "", # Retain
+        "frame": "", # Retain
+        "filter": (
+            "filter",
+            ["closest", "bilinear", "bicubic", "smart_bicubic"]),
+        "mipmapBias": "mipmap_bias",
+        "multiply": None,
+        "offset": None,
+        "colorSpace": "color_space",
+        "ignoreMissingTextures": "ignore_missing_textures",
+        "missingTextureColor" : "missing_texture_color",
+        "uvset": None,
+        "uvcoords": None,
+        "soffset": None,
+        "toffset": None,
+        "swrap": (
+            "swrap", 
+            ["periodic", "black", "clamp", "mirror", "file"]),
+        "twrap": (
+            "twrap", 
+            ["periodic", "black", "clamp", "mirror", "file"]),
+        "sscale": None,
+        "tscale": None,
+        "sflip": None,
+        "tflip": None,
+        "swapSt": "swap_st",
+        "singleChannel": "single_channel",
+        "startChannel": "start_channel",
+    }
 }
