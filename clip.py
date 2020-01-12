@@ -184,7 +184,7 @@ def iterate_mapping_recursive(mapping_dict, xml_group, node):
                 #     force_continue = True
                 if options:
                     if maya_value is not None:
-                        maya_value = int(maya_value) # We can't find any mistakes there for the time being. Let's solve them first
+                        # maya_value = int(maya_value) # We can't find any mistakes there for the time being. Let's solve them first
                         maya_value = options[maya_value]
                 if process_field:
                     maya_value = process_field(param_key, maya_value)
@@ -531,12 +531,12 @@ def generate_xml(node_names, renderer=None):
             renderer = "prman"
         elif shader_type.startswith(("ai", "al")):
             renderer = "arnold"
-        elif shader_type == "file":
+        else:
             if cmds.getAttr("defaultRenderGlobals.currentRenderer") == "arnold":
                 renderer = "arnold"
-        else:
-            utils.log.error("No renderer specified")
-            return ""
+            else:
+                utils.log.error("No renderer specified")
+                return ""
     # Now we try to import renderer plugin
     try:
         renderer_package = __import__(

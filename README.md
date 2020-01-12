@@ -76,7 +76,6 @@ Description currently supported: (当前支持的描述)
 
 Currently existing problems: (当前存在的问题)
  - Does not convert image format to .TX (不将图像格式转换为 .TX)
- - unable to automatically connect Material to NetworkMaterial (无法自动连接材质到网络材质)
 
 
 ### Integrations

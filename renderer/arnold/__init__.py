@@ -192,70 +192,20 @@ def preprocess_ramp(node):
     return nodes
 
 
-def preprocess_network_material(node):
-    """
-    Preprocess shadingEngine node and remap correct attributes
-    """
-    nodes = {}
-    node_name = node["name"]
-    connections = node["connections"]
-    new_connections = {}
-    for i in ["aiSurfaceShader", "surfaceShader", "aiVolumeShader", "volumeShader"]:
-        connection = connections.get(i)
-        if connection:
-            new_connections["arnold_surface"] = connection
-            break
-    displacement_connection = connections.get("displacementShader")
-    if displacement_connection:
-        new_connections["arnoldDisplacement"] = displacement_connection
-    nodes[node_name] = node
-    node["connections"] = new_connections
-    return nodes
-
-
-def postprocess_network_material(node, all_nodes):
-    """
-    Rename the networkMaterial node and connect bump
-    """
-    nodes = {}
-    arnold_surface = node["connections"].get("arnold_surface")
-    if arnold_surface:
-        shader_node = all_nodes.get(arnold_surface["node"])
-        while shader_node and shader_node.get("type") in [
-            "aov_write_rgb",
-            "aov_write_float",
-        ]:
-            passthrough = shader_node["connections"].get("beauty")
-            if passthrough:
-                shader_node = all_nodes.get(passthrough.get("node"))
-        if shader_node:
-            shader_node_name = shader_node["name"]
-            # Remove the output node to reinsert it back with the new name
-            all_nodes.pop(shader_node_name, None)
-            material_name = shader_node_name
-            shader_node_name += "_out"
-            shader_node["name"] = shader_node_name
-            nodes[shader_node_name] = shader_node
-            node["name"] = material_name
-            node["renamings"] = {
-                material_name: {"name": shader_node_name},
-            }
-            bump = shader_node["connections"].get("normalCamera")
-            if bump:
-                node["connections"]["arnoldBump"] = bump
-                del shader_node["connections"]["normalCamera"]
-            nodes[material_name] = node
-    return nodes
-
-
 def process_network_material(xml_group, node):
     """
     Process NetworkMaterial to remove extra input ports
     """
-    for i in ["arnold_surface", "arnoldBump", "arnoldDisplacement"]:
-        if i not in node["connections"]:
-            parameter = xml_group.find("./port[@name='{param}']".format(param=i))
-            xml_group.remove(parameter)
+    if float(cmds.pluginInfo('mtoa', query = True, version = True)[0]) >= 2.0:
+        for i in ["arnoldSurface", "arnoldDisplacement"]:
+            if i not in node["connections"]:
+                parameter = xml_group.find("./port[@name='{param}']".format(param=i))
+                xml_group.remove(parameter)
+    else:
+        for i in ["arnold_surface", "arnoldBump", "arnoldDisplacement"]:
+            if i not in node["connections"]:
+                parameter = xml_group.find("./port[@name='{param}']".format(param=i))
+                xml_group.remove(parameter)
 
 
 def process_ramp(xml_group, node):
@@ -458,16 +408,74 @@ def preprocess_file(node):
     return nodes
 
 
+def preprocess_network_material(node):
+    """
+    Preprocess shadingEngine node and remap correct attributes
+    """
+    nodes = {}
+    node_name = node["name"]
+    connections = node["connections"]
+    new_connections = {}
+    if float(cmds.pluginInfo('mtoa', query = True, version = True)[0]) >= 2.0:
+        node["type"] = "networkMaterial_ar5"
+    else:
+        node["type"] = "networkMaterial"
+    for i in ["aiSurfaceShader", "surfaceShader", "aiVolumeShader", "volumeShader"]:
+        connection = connections.get(i)
+        if connection:
+            new_connections["arnoldSurface"] = connection
+            break
+    displacement_connection = connections.get("displacementShader")
+    if displacement_connection:
+        new_connections["arnoldDisplacement"] = displacement_connection
+    node["connections"] = new_connections
+    nodes[node_name] = node
+    return nodes
+
+
+def postprocess_network_material(node, all_nodes):
+    """
+    Rename the networkMaterial node and connect bump
+    """
+    nodes = {}
+    arnold_surface = node["connections"].get("arnoldSurface")
+    if arnold_surface:
+        shader_node = all_nodes.get(arnold_surface["node"])
+        while shader_node and shader_node.get("type") in [
+            "aov_write_rgb",
+            "aov_write_float",
+        ]:
+            passthrough = shader_node["connections"].get("beauty")
+            if passthrough:
+                shader_node = all_nodes.get(passthrough.get("node"))
+        if shader_node:
+            shader_node_name = shader_node["name"]
+            # Remove the output node to reinsert it back with the new name
+            all_nodes.pop(shader_node_name, None)
+            material_name = shader_node_name
+            material_name += "_mtl"
+            shader_node_name += "_out"
+            shader_node["name"] = shader_node_name
+            nodes[shader_node_name] = shader_node
+            node["name"] = material_name
+            node["connections"]["arnoldSurface"]["node"] = shader_node_name
+            node["renamings"] = {
+                material_name: {"name": shader_node_name},
+            }
+            if not float(cmds.pluginInfo('mtoa', query = True, version = True)[0]) >= 2.0:
+                bump = shader_node["connections"].get("normalCamera")
+                if bump:
+                    node["connections"]["arnoldBump"] = bump
+                    del shader_node["connections"]["normalCamera"]
+            nodes[material_name] = node
+    return nodes
+
+
 # Preprocess keywords:
 # - preprocess
 # - postprocess (postprocess at level 0)
 # - type (override type)
 premap = {
-    "shadingEngine": {
-        "type": "networkMaterial",
-        "preprocess": preprocess_network_material,
-        "postprocess": postprocess_network_material,
-    },
     "displacementShader": {"preprocess": preprocess_displacement,},
     "alSurface": {},
     "alLayer": {},
@@ -511,6 +519,10 @@ premap = {
     "file": {"preprocess": preprocess_file},
     "aiColorCorrect": {"type": "color_correct"},
     "aiNormalMap": {"type": "normal_map"},
+    "shadingEngine": {
+        "preprocess": preprocess_network_material,
+        "postprocess": postprocess_network_material,
+    },
 }
 
 # Mappings keywords:
@@ -1551,5 +1563,9 @@ mappings = {
         "invertZ": "invert_z",
         "colorToSigned": "color_to_signed",
         "tangentSpace": "tangent_space",
+    },
+    "networkMaterial_ar5": {
+        "customColor": (0.4, 0.35, 0.2),
+        "customProcess": process_network_material,
     },
 }
