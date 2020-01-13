@@ -523,6 +523,7 @@ premap = {
         "preprocess": preprocess_network_material,
         "postprocess": postprocess_network_material,
     },
+    "aiBump2d": {"type": "bump2d_ar5"},
 }
 
 # Mappings keywords:
@@ -1410,7 +1411,7 @@ mappings = {
         "aovName": "aov_name",
     },
     # Arnold 5 add (bate)
-    'standard_surface': {
+    "standard_surface": {
         'customColor': (0.05, 0.26, 0.09),
         'base': {
             'baseColor': 'base_color',
@@ -1567,5 +1568,10 @@ mappings = {
     "networkMaterial_ar5": {
         "customColor": (0.4, 0.35, 0.2),
         "customProcess": process_network_material,
+    },
+    "bump2d_ar5": {
+        "bumpMap": "bump_map",
+        "bumpHeight": "bump_height",
+        "normal": None,
     },
 }
