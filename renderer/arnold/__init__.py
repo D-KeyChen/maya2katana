@@ -404,6 +404,8 @@ def preprocess_file(node):
     node["attributes"]["multiply"] = node["attributes"]["colorGain"]
     node["attributes"]["offset"] = node["attributes"]["colorOffset"] # Existence of bug
     node["type"] = "image_ar5"
+    if node["attributes"]["colorSpace"] == "Raw":
+            node["attributes"]["colorSpace"] = "linear"
     nodes[node_name] = node
     return nodes
 
