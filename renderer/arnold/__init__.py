@@ -406,6 +406,8 @@ def preprocess_file(node):
     node["type"] = "image_ar5"
     if node["attributes"]["colorSpace"] == "Raw":
             node["attributes"]["colorSpace"] = "linear"
+    else:
+            node["attributes"]["colorSpace"] = "auto"
     nodes[node_name] = node
     return nodes
 
