@@ -1,133 +1,83 @@
 <node baseType="ArnoldShadingNode" name="color_correct" selected="true" type="ArnoldShadingNode">
     <port name="input" type="in">
-    <metadata>
-    </metadata>
     </port>
     <port name="input.r" type="in">
     <tags>
         <tag name="float or rgb or rgba or vector or vector2"/>
     </tags>
-    <metadata>
-    </metadata>
     </port>
     <port name="input.g" type="in">
     <tags>
         <tag name="float or rgb or rgba or vector or vector2"/>
     </tags>
-    <metadata>
-    </metadata>
     </port>
     <port name="input.b" type="in">
     <tags>
         <tag name="float or rgb or rgba or vector or vector2"/>
     </tags>
-    <metadata>
-    </metadata>
     </port>
     <port name="input.a" type="in">
     <tags>
         <tag name="float or rgb or rgba or vector or vector2"/>
     </tags>
-    <metadata>
-    </metadata>
     </port>
     <port name="alpha_is_luminance" type="in">
-    <metadata>
-    </metadata>
     </port>
     <port name="alpha_multiply" type="in">
-    <metadata>
-    </metadata>
     </port>
     <port name="alpha_add" type="in">
-    <metadata>
-    </metadata>
     </port>
     <port name="invert" type="in">
-    <metadata>
-    </metadata>
     </port>
     <port name="invert_alpha" type="in">
-    <metadata>
-    </metadata>
     </port>
     <port name="gamma" type="in">
-    <metadata>
-    </metadata>
     </port>
     <port name="hue_shift" type="in">
-    <metadata>
-    </metadata>
     </port>
     <port name="saturation" type="in">
-    <metadata>
-    </metadata>
     </port>
     <port name="contrast" type="in">
-    <metadata>
-    </metadata>
     </port>
     <port name="contrast_pivot" type="in">
-    <metadata>
-    </metadata>
     </port>
     <port name="exposure" type="in">
-    <metadata>
-    </metadata>
     </port>
     <port name="multiply" type="in">
-    <metadata>
-    </metadata>
     </port>
     <port name="multiply.r" type="in">
     <tags>
         <tag name="float or rgb or rgba or vector or vector2"/>
     </tags>
-    <metadata>
-    </metadata>
     </port>
     <port name="multiply.g" type="in">
     <tags>
         <tag name="float or rgb or rgba or vector or vector2"/>
     </tags>
-    <metadata>
-    </metadata>
     </port>
     <port name="multiply.b" type="in">
     <tags>
         <tag name="float or rgb or rgba or vector or vector2"/>
     </tags>
-    <metadata>
-    </metadata>
     </port>
     <port name="add" type="in">
-    <metadata>
-    </metadata>
     </port>
     <port name="add.r" type="in">
     <tags>
         <tag name="float or rgb or rgba or vector or vector2"/>
     </tags>
-    <metadata>
-    </metadata>
     </port>
     <port name="add.g" type="in">
     <tags>
         <tag name="float or rgb or rgba or vector or vector2"/>
     </tags>
-    <metadata>
-    </metadata>
     </port>
     <port name="add.b" type="in">
     <tags>
         <tag name="float or rgb or rgba or vector or vector2"/>
     </tags>
-    <metadata>
-    </metadata>
     </port>
     <port name="mask" type="in">
-    <metadata>
-    </metadata>
     </port>
     <port name="out" type="out">
     <tags>

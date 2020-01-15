@@ -1,11 +1,7 @@
 <node baseType="ArnoldShadingNode" edited="true" name="image" selected="true" type="ArnoldShadingNode">
   <port name="filename" type="in">
-    <metadata>
-    </metadata>
   </port>
   <port name="color_space" type="in">
-    <metadata>
-    </metadata>
   </port>
   <port name="filter" type="in">
     <metadata>
@@ -157,40 +153,28 @@
     </metadata>
   </port>
   <port name="ignore_missing_textures" type="in">
-    <metadata>
-    </metadata>
   </port>
   <port name="missing_texture_color" type="in">
-    <metadata>
-    </metadata>
   </port>
   <port name="missing_texture_color.r" type="in">
     <tags>
       <tag name="float or rgb or rgba or vector or vector2"/>
     </tags>
-    <metadata>
-    </metadata>
   </port>
   <port name="missing_texture_color.g" type="in">
     <tags>
       <tag name="float or rgb or rgba or vector or vector2"/>
     </tags>
-    <metadata>
-    </metadata>
   </port>
   <port name="missing_texture_color.b" type="in">
     <tags>
       <tag name="float or rgb or rgba or vector or vector2"/>
     </tags>
-    <metadata>
-    </metadata>
   </port>
   <port name="missing_texture_color.a" type="in">
     <tags>
       <tag name="float or rgb or rgba or vector or vector2"/>
     </tags>
-    <metadata>
-    </metadata>
   </port>
   <port name="out" type="out">
     <tags>

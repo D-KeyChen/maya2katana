@@ -475,6 +475,22 @@ def postprocess_network_material(node, all_nodes):
     return nodes
 
 
+def preprocess_multiplyDivide(node):
+    nodes = {}
+    node_name = node["name"]
+    if node["attributes"]["operation"] == 2:
+        node["type"] = "divide"
+    elif node["attributes"]["operation"] == 3:
+        node["type"] = "pow"
+        node["attributes"]["base"] = node["attributes"]["input1"]
+        node["attributes"]["exponent"] = node["attributes"]["input2"]
+    else:
+        node["type"] = "multiply"
+    print node["type"]
+    nodes[node_name] = node
+    return nodes
+
+
 # Preprocess keywords:
 # - preprocess
 # - postprocess (postprocess at level 0)
@@ -528,6 +544,10 @@ premap = {
         "postprocess": postprocess_network_material,
     },
     "aiBump2d": {"type": "bump2d_ar5"},
+    "multiplyDivide": {"preprocess": preprocess_multiplyDivide},
+    "aiMultiply": {"type": "multiply"},
+    "aiDivide": {"type": "divide"},
+    "aiPow": {"type": "pow"},
 }
 
 # Mappings keywords:
@@ -1577,5 +1597,17 @@ mappings = {
         "bumpMap": "bump_map",
         "bumpHeight": "bump_height",
         "normal": None,
+    },
+    "multiply": {
+        "input1": None,
+        "input2": None,
+    },
+    "divide": {
+        "input1": None,
+        "input2": None,
+    },
+    "pow": {
+        "base": None,
+        "exponent": None,
     },
 }
