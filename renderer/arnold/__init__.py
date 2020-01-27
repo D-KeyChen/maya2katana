@@ -548,6 +548,7 @@ premap = {
     "aiMultiply": {"type": "multiply"},
     "aiDivide": {"type": "divide"},
     "aiPow": {"type": "pow"},
+    "aiLayerShader": {},
 }
 
 # Mappings keywords:
@@ -1609,5 +1610,48 @@ mappings = {
     "pow": {
         "base": None,
         "exponent": None,
+    },
+    "aiLayerShader": {
+        "customColor": (0.20, 0.26, 0.18),
+        "enable1": {
+            "name1": None,
+            "input1": None,
+            "mix1": None,
+        },
+        "enable2": {
+            "name2": None,
+            "input2": None,
+            "mix2": None,
+        },
+        "enable3": {
+            "name3": None,
+            "input3": None,
+            "mix3": None,
+        },
+        "enable4": {
+            "name4": None,
+            "input4": None,
+            "mix4": None,
+        },
+        "enable5": {
+            "name5": None,
+            "input5": None,
+            "mix5": None,
+        },
+        "enable6": {
+            "name6": None,
+            "input6": None,
+            "mix6": None,
+        },
+        "enable7": {
+            "name7": None,
+            "input7": None,
+            "mix7": None,
+        },
+        "enable8": {
+            "name8": None,
+            "input8": None,
+            "mix8": None,
+        },
     },
 }

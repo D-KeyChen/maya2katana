@@ -1,0 +1,250 @@
+
+<node baseType="ArnoldShadingNode" edited="true" name="layer_shader" selected="true" type="ArnoldShadingNode">
+    <port name="enable1" type="in">
+    </port>
+    <port name="name1" type="in">
+    </port>
+    <port name="input1" type="in">
+    </port>
+    <port name="mix1" type="in">
+    </port>
+    <port name="enable2" type="in">
+    </port>
+    <port name="name2" type="in">
+    </port>
+    <port name="input2" type="in">
+    </port>
+    <port name="mix2" type="in">
+    </port>
+    <port name="enable3" type="in">
+    </port>
+    <port name="name3" type="in">
+    </port>
+    <port name="input3" type="in">
+    </port>
+    <port name="mix3" type="in">
+    </port>
+    <port name="enable4" type="in">
+    </port>
+    <port name="name4" type="in">
+    </port>
+    <port name="input4" type="in">
+    </port>
+    <port name="mix4" type="in">
+    </port>
+    <port name="enable5" type="in">
+    </port>
+    <port name="name5" type="in">
+    </port>
+    <port name="input5" type="in">
+    </port>
+    <port name="mix5" type="in">
+    </port>
+    <port name="enable6" type="in">
+    </port>
+    <port name="name6" type="in">
+    </port>
+    <port name="input6" type="in">
+    </port>
+    <port name="mix6" type="in">
+    </port>
+    <port name="enable7" type="in">
+    </port>
+    <port name="name7" type="in">
+    </port>
+    <port name="input7" type="in">
+    </port>
+    <port name="mix7" type="in">
+    </port>
+    <port name="enable8" type="in">
+    </port>
+    <port name="name8" type="in">
+    </port>
+    <port name="input8" type="in">
+    </port>
+    <port name="mix8" type="in">
+    </port>
+    <port name="out" type="out">
+    <tags>
+        <tag name="shader"/>
+    </tags>
+    </port>
+    <group_parameter name="layer_shader">
+    <string_parameter name="name" value="layer_shader"/>
+    <string_parameter name="nodeType" value="layer_shader"/>
+    <string_parameter name="__lastValue" value="kakqt7lkgqe73iaxrobrxhaozmj5q374kqu7k6k6m5vesclcbb7yFalse"/>
+    <string_parameter name="__showHiddenParams" value="False"/>
+    <group_parameter name="parameters">
+        <group_parameter name="enable1">
+        <number_parameter name="enable" value="0"/>
+        <number_parameter name="value" value="1"/>
+        <string_parameter name="type" value="IntAttr"/>
+        </group_parameter>
+        <group_parameter name="name1">
+        <number_parameter name="enable" value="0"/>
+        <string_parameter name="value" value="layer1"/>
+        <string_parameter name="type" value="StringAttr"/>
+        </group_parameter>
+        <group_parameter name="input1">
+        <number_parameter name="enable" value="0"/>
+        <string_parameter name="value" value="Connect to a shader in the node graph"/>
+        <string_parameter name="type" value="StringAttr"/>
+        </group_parameter>
+        <group_parameter name="mix1">
+        <number_parameter name="enable" value="0"/>
+        <number_parameter name="value" value="1"/>
+        <string_parameter name="type" value="FloatAttr"/>
+        </group_parameter>
+        <group_parameter name="enable2">
+        <number_parameter name="enable" value="0"/>
+        <number_parameter name="value" value="1"/>
+        <string_parameter name="type" value="IntAttr"/>
+        </group_parameter>
+        <group_parameter name="name2">
+        <number_parameter name="enable" value="0"/>
+        <string_parameter name="value" value="layer2"/>
+        <string_parameter name="type" value="StringAttr"/>
+        </group_parameter>
+        <group_parameter name="input2">
+        <number_parameter name="enable" value="0"/>
+        <string_parameter name="value" value="Connect to a shader in the node graph"/>
+        <string_parameter name="type" value="StringAttr"/>
+        </group_parameter>
+        <group_parameter name="mix2">
+        <number_parameter name="enable" value="0"/>
+        <number_parameter name="value" value="1"/>
+        <string_parameter name="type" value="FloatAttr"/>
+        </group_parameter>
+        <group_parameter name="enable3">
+        <number_parameter name="enable" value="0"/>
+        <number_parameter name="value" value="1"/>
+        <string_parameter name="type" value="IntAttr"/>
+        </group_parameter>
+        <group_parameter name="name3">
+        <number_parameter name="enable" value="0"/>
+        <string_parameter name="value" value="layer3"/>
+        <string_parameter name="type" value="StringAttr"/>
+        </group_parameter>
+        <group_parameter name="input3">
+        <number_parameter name="enable" value="0"/>
+        <string_parameter name="value" value="Connect to a shader in the node graph"/>
+        <string_parameter name="type" value="StringAttr"/>
+        </group_parameter>
+        <group_parameter name="mix3">
+        <number_parameter name="enable" value="0"/>
+        <number_parameter name="value" value="1"/>
+        <string_parameter name="type" value="FloatAttr"/>
+        </group_parameter>
+        <group_parameter name="enable4">
+        <number_parameter name="enable" value="0"/>
+        <number_parameter name="value" value="1"/>
+        <string_parameter name="type" value="IntAttr"/>
+        </group_parameter>
+        <group_parameter name="name4">
+        <number_parameter name="enable" value="0"/>
+        <string_parameter name="value" value="layer4"/>
+        <string_parameter name="type" value="StringAttr"/>
+        </group_parameter>
+        <group_parameter name="input4">
+        <number_parameter name="enable" value="0"/>
+        <string_parameter name="value" value="Connect to a shader in the node graph"/>
+        <string_parameter name="type" value="StringAttr"/>
+        </group_parameter>
+        <group_parameter name="mix4">
+        <number_parameter name="enable" value="0"/>
+        <number_parameter name="value" value="1"/>
+        <string_parameter name="type" value="FloatAttr"/>
+        </group_parameter>
+        <group_parameter name="enable5">
+        <number_parameter name="enable" value="0"/>
+        <number_parameter name="value" value="1"/>
+        <string_parameter name="type" value="IntAttr"/>
+        </group_parameter>
+        <group_parameter name="name5">
+        <number_parameter name="enable" value="0"/>
+        <string_parameter name="value" value="layer5"/>
+        <string_parameter name="type" value="StringAttr"/>
+        </group_parameter>
+        <group_parameter name="input5">
+        <number_parameter name="enable" value="0"/>
+        <string_parameter name="value" value="Connect to a shader in the node graph"/>
+        <string_parameter name="type" value="StringAttr"/>
+        </group_parameter>
+        <group_parameter name="mix5">
+        <number_parameter name="enable" value="0"/>
+        <number_parameter name="value" value="1"/>
+        <string_parameter name="type" value="FloatAttr"/>
+        </group_parameter>
+        <group_parameter name="enable6">
+        <number_parameter name="enable" value="0"/>
+        <number_parameter name="value" value="1"/>
+        <string_parameter name="type" value="IntAttr"/>
+        </group_parameter>
+        <group_parameter name="name6">
+        <number_parameter name="enable" value="0"/>
+        <string_parameter name="value" value="layer6"/>
+        <string_parameter name="type" value="StringAttr"/>
+        </group_parameter>
+        <group_parameter name="input6">
+        <number_parameter name="enable" value="0"/>
+        <string_parameter name="value" value="Connect to a shader in the node graph"/>
+        <string_parameter name="type" value="StringAttr"/>
+        </group_parameter>
+        <group_parameter name="mix6">
+        <number_parameter name="enable" value="0"/>
+        <number_parameter name="value" value="1"/>
+        <string_parameter name="type" value="FloatAttr"/>
+        </group_parameter>
+        <group_parameter name="enable7">
+        <number_parameter name="enable" value="0"/>
+        <number_parameter name="value" value="1"/>
+        <string_parameter name="type" value="IntAttr"/>
+        </group_parameter>
+        <group_parameter name="name7">
+        <number_parameter name="enable" value="0"/>
+        <string_parameter name="value" value="layer7"/>
+        <string_parameter name="type" value="StringAttr"/>
+        </group_parameter>
+        <group_parameter name="input7">
+        <number_parameter name="enable" value="0"/>
+        <string_parameter name="value" value="Connect to a shader in the node graph"/>
+        <string_parameter name="type" value="StringAttr"/>
+        </group_parameter>
+        <group_parameter name="mix7">
+        <number_parameter name="enable" value="0"/>
+        <number_parameter name="value" value="1"/>
+        <string_parameter name="type" value="FloatAttr"/>
+        </group_parameter>
+        <group_parameter name="enable8">
+        <number_parameter name="enable" value="0"/>
+        <number_parameter name="value" value="1"/>
+        <string_parameter name="type" value="IntAttr"/>
+        </group_parameter>
+        <group_parameter name="name8">
+        <number_parameter name="enable" value="0"/>
+        <string_parameter name="value" value="layer8"/>
+        <string_parameter name="type" value="StringAttr"/>
+        </group_parameter>
+        <group_parameter name="input8">
+        <number_parameter name="enable" value="0"/>
+        <string_parameter name="value" value="Connect to a shader in the node graph"/>
+        <string_parameter name="type" value="StringAttr"/>
+        </group_parameter>
+        <group_parameter name="mix8">
+        <number_parameter name="enable" value="0"/>
+        <number_parameter name="value" value="1"/>
+        <string_parameter name="type" value="FloatAttr"/>
+        </group_parameter>
+        <group_parameter name="__unused"/>
+    </group_parameter>
+    <group_parameter name="publicInterface">
+        <string_parameter name="namePrefix" value=""/>
+        <string_parameter name="pagePrefix" value=""/>
+        <string_parameter name="nameRegExFind" value=""/>
+        <string_parameter name="nameRegExReplace" value=""/>
+        <string_parameter name="pageRegExFind" value=""/>
+        <string_parameter name="pageRegExReplace" value=""/>
+    </group_parameter>
+    <string_parameter name="forceRefresh" value=""/>
+    </group_parameter>
+</node>

@@ -13,7 +13,7 @@ Easily copy shading nodes from [Maya](http://www.autodesk.com/products/maya/over
 
 - #### [Arnold 5](https://www.arnoldrenderer.com/arnold/) (bate)
    Supported nodes: aiStandardSurface, aiImage, file, aiColorCorrect, aiNormalMap, aiBump2d,
-   multiplyDivide, aiMultiply, aiDivide, aiPow
+   multiplyDivide, aiMultiply, aiDivide, aiPow, aiLayerShader
 
 - #### [RenderMan 21.7+](https://renderman.pixar.com/)
   Supported nodes: aaOceanPrmanShader, PxrAdjustNormal, PxrAovLight, PxrAttribute,
