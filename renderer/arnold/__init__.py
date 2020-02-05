@@ -131,7 +131,7 @@ def preprocess_ramp(node):
             color_entry_list[i] = connection
     # Get the number of ramp points in Maya
     color_entry_list_size = cmds.getAttr(
-        "{node}.color_entry_list".format(node=node_name), size=True
+        "{node}.colorEntryList".format(node=node_name), size=True
     )
     if color_entry_list_size < 2 and color_entry_list:
         # delete the whole ramp as it does nothing in Katana
@@ -241,6 +241,8 @@ def process_ramp(xml_group, node):
         ramp_type = "radial"
     elif str(attributes["type"]) == "4":
         ramp_type = "circular"
+    elif str(attributes["type"]) == "5":
+        ramp_type = "box"
     else:
         utils.log.warning(
             'Can\'t translate ramp type for node "{name}"'.format(name=node_name)
@@ -248,24 +250,24 @@ def process_ramp(xml_group, node):
         ramp_type = "custom"
     key_value = "color" if node_type == "ramp" else "value"
     interpolation = 0 if attributes["interpolation"] == 0 else 2
-    color_entry_list_size = cmds.getAttr(
-        "{node}.color_entry_list".format(node=node_name), size=True
+    color_entry_list_size = 2 + cmds.getAttr(
+        "{node}.colorEntryList".format(node=node_name), size=True
     )
     color_entry_list = []
     has_connections = False
     color_entry_list_indices = sorted(
-        cmds.getAttr(node_name + ".color_entry_list", multiIndices=True)
+        cmds.getAttr(node_name + ".colorEntryList", multiIndices=True)
     )
     for i in color_entry_list_indices:
         if utils.has_connection(
-            node, "color_entry_list[{index}].color".format(index=i)
+            node, "colorEntryList[{index}].color".format(index=i)
         ):
             has_connections = True
             break
     index = 0
     for i in color_entry_list_indices:
         value_position = cmds.getAttr(
-            "{node}.color_entry_list[{index}].{param}".format(
+            "{node}.colorEntryList[{index}].{param}".format(
                 node=node_name, index=i, param="position"
             )
         )
@@ -274,14 +276,14 @@ def process_ramp(xml_group, node):
             index += 1
         else:
             value_color = cmds.getAttr(
-                "{node}.color_entry_list[{index}].{param}".format(
+                "{node}.colorEntryList[{index}].{param}".format(
                     node=node_name, index=i, param="color"
                 )
             )
             value_color = value_color[0]
         color_entry_list.append({key_value: value_color, "position": value_position})
-    color_entry_list.sort(key=lambda x: x["positions"])
-    for dest_key in ["input", "type", "position", key_value, "interpolation"]:
+    color_entry_list.sort(key=lambda x: x["position"])
+    for dest_key in ["input", "type", "position", key_value, "interpolation", "ramp"]:
         parameter = xml_group.find(
             ".//group_parameter[@name='{param}']".format(param=dest_key)
         )
@@ -289,27 +291,84 @@ def process_ramp(xml_group, node):
             continue
         enable_node = parameter.find("*[@name='enable']")
         value_node = parameter.find("*[@name='value']")
-        if dest_key in ["input", "type"]:
+        if dest_key in ["input", "type", "ramp"]:
             if not utils.has_connection(node, dest_key):
                 enable_node.attrib["value"] = "1"
                 if dest_key == "input":
                     value = str(ramp_input)
                 elif dest_key == "type":
                     value = ramp_type
+                elif dest_key == "ramp":
+                    value = str(color_entry_list_size)
                 value_node.attrib["value"] = value
             continue
         enable_node.attrib["value"] = "1"
         tuple_size = int(value_node.get("tupleSize", "0"))
         value_node.attrib["size"] = str(tuple_size * color_entry_list_size)
-        for i in range(color_entry_list_size):
+        for i in range(color_entry_list_size - 2):
             if dest_key == "interpolation":
                 value = str(interpolation)
             else:
                 value = color_entry_list[i][dest_key]
-            for j in range(tuple_size):
-                sub_value = ET.SubElement(value_node, "number_parameter")
-                sub_value.attrib["name"] = "i" + str(i * tuple_size + j)
-                sub_value.attrib["value"] = str(value[j] if tuple_size > 1 else value)
+            if dest_key == "color":
+                if i == 0:
+                    for j in range(tuple_size):
+                        sub_value = ET.SubElement(value_node, "number_parameter")
+                        sub_value.attrib["name"] = "i" + str(i * tuple_size + j)
+                        sub_value.attrib["value"] = str(value[j])
+                    for j in range(tuple_size):
+                        sub_value = ET.SubElement(value_node, "number_parameter")
+                        sub_value.attrib["name"] = "i" + str(i * tuple_size + j + 3)
+                        sub_value.attrib["value"] = str(value[j])
+                elif i < (color_entry_list_size - 3):
+                    for j in range(tuple_size):
+                        sub_value = ET.SubElement(value_node, "number_parameter")
+                        sub_value.attrib["name"] = "i" + str(i * tuple_size + j + 3)
+                        sub_value.attrib["value"] = str(value[j])
+                else:
+                    for j in range(tuple_size):
+                        sub_value = ET.SubElement(value_node, "number_parameter")
+                        sub_value.attrib["name"] = "i" + str(i * tuple_size + j + 3)
+                        sub_value.attrib["value"] = str(value[j])
+                    for j in range(tuple_size):
+                        sub_value = ET.SubElement(value_node, "number_parameter")
+                        sub_value.attrib["name"] = "i" + str(i * tuple_size + j + 6)
+                        sub_value.attrib["value"] = str(value[j])
+        for i in range(color_entry_list_size):
+            if dest_key == "interpolation":
+                value = str(interpolation)
+            else:
+                value = color_entry_list[i if i < (color_entry_list_size - 2) 
+                                            else (i - 2)][dest_key]
+            if dest_key == "interpolation":
+                for j in range(tuple_size):
+                    sub_value = ET.SubElement(value_node, "number_parameter")
+                    sub_value.attrib["name"] = "i" + str(i * tuple_size + j)
+                    sub_value.attrib["value"] = str(value[j] if tuple_size > 1 else value)
+            if dest_key == "position":
+                if i == 0:
+                    for j in range(tuple_size):
+                        sub_value = ET.SubElement(value_node, "number_parameter")
+                        sub_value.attrib["name"] = "i" + str(i * tuple_size + j)
+                        sub_value.attrib["value"] = str(0)
+                    for j in range(tuple_size):
+                        sub_value = ET.SubElement(value_node, "number_parameter")
+                        sub_value.attrib["name"] = "i" + str(i * tuple_size + j + 1)
+                        sub_value.attrib["value"] = str(value[j] if tuple_size > 1 else value)
+                elif i < (color_entry_list_size - 3):
+                    for j in range(tuple_size):
+                        sub_value = ET.SubElement(value_node, "number_parameter")
+                        sub_value.attrib["name"] = "i" + str(i * tuple_size + j + 1)
+                        sub_value.attrib["value"] = str(value[j] if tuple_size > 1 else value)
+                else:
+                    for j in range(tuple_size):
+                        sub_value = ET.SubElement(value_node, "number_parameter")
+                        sub_value.attrib["name"] = "i" + str(i * tuple_size + j + 1)
+                        sub_value.attrib["value"] = str(value[j] if tuple_size > 1 else value)
+                    for j in range(tuple_size):
+                        sub_value = ET.SubElement(value_node, "number_parameter")
+                        sub_value.attrib["name"] = "i" + str(i * tuple_size + j + 2)
+                        sub_value.attrib["value"] = str(value[j] if tuple_size > 1 else value)
 
 
 def preprocess_displacement(node):
@@ -1215,11 +1274,6 @@ mappings = {
         "min": override_clamp_params,
         "max": override_clamp_params,
     },
-    "ramp": {
-        "customProcess": process_ramp,
-        #'uCoord': 'input',
-        #'vCoord': 'input',
-    },
     "rampFloat": {
         "customProcess": process_ramp,
         #'uCoord': 'input',
@@ -1523,9 +1577,9 @@ mappings = {
     },
     "image_ar5": {
         'customColor': (0.36, 0.25, 0.38),
-        "filename": None,
-        "useFrameExtension": "", # Retain
-        "frame": "", # Retain
+        "filename": replace_tx,
+        # "useFrameExtension": "", # Retain
+        # "frame": "", # Retain
         "filter": (
             "filter",
             ["closest", "bilinear", "bicubic", "smart_bicubic"]),
@@ -1653,5 +1707,10 @@ mappings = {
             "input8": None,
             "mix8": None,
         },
+    },
+    "ramp": {
+        "customProcess": process_ramp,
+        #'uCoord': 'input',
+        #'vCoord': 'input',
     },
 }

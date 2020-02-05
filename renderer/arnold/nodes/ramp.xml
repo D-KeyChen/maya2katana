@@ -1,91 +1,185 @@
 <node baseType="ArnoldShadingNode" edited="true" name="ramp_rgb" selected="true" type="ArnoldShadingNode">
-  <port name="type" type="in"/>
-  <port name="input" type="in"/>
-  <port name="position" type="in"/>
-  <port name="color" type="in"/>
-  <port name="color.r" type="in">
+    <port name="type" type="in">
+    <metadata>
+        <entry key="parameterIndex" value="1"/>
+    </metadata>
+    </port>
+    <port name="input" type="in">
+    <metadata>
+        <entry key="parameterIndex" value="2"/>
+    </metadata>
+    </port>
+    <port color="0.2471 0.3686 0.5725" name="position" type="in">
     <tags>
-      <tag name="float or rgb or rgba or vector or point or point2"/>
+        <tag name="float or rgb or rgba or vector or vector2"/>
     </tags>
-  </port>
-  <port name="color.g" type="in">
+    <metadata>
+        <entry key="parameterIndex" value="6"/>
+    </metadata>
+    </port>
+    <port color="0.2471 0.3686 0.5725" name="color" type="in">
     <tags>
-      <tag name="float or rgb or rgba or vector or point or point2"/>
+        <tag name="float or rgb or rgba or vector or vector2"/>
     </tags>
-  </port>
-  <port name="color.b" type="in">
+    <metadata>
+        <entry key="parameterIndex" value="7"/>
+    </metadata>
+    </port>
+    <port color="0.2471 0.3686 0.5725" name="color.r" type="in">
     <tags>
-      <tag name="float or rgb or rgba or vector or point or point2"/>
+        <tag name="float or rgb or rgba or vector or vector2"/>
     </tags>
-  </port>
-  <port name="interpolation" type="in"/>
-  <port name="out" type="out">
+    <metadata>
+        <entry key="parameterIndex" value="8"/>
+    </metadata>
+    </port>
+    <port color="0.2471 0.3686 0.5725" name="color.g" type="in">
     <tags>
-      <tag name="rgb"/>
+        <tag name="float or rgb or rgba or vector or vector2"/>
     </tags>
-  </port>
-  <port name="out.r" type="out">
+    <metadata>
+        <entry key="parameterIndex" value="9"/>
+    </metadata>
+    </port>
+    <port color="0.2471 0.3686 0.5725" name="color.b" type="in">
     <tags>
-      <tag name="float"/>
+        <tag name="float or rgb or rgba or vector or vector2"/>
     </tags>
-  </port>
-  <port name="out.g" type="out">
+    <metadata>
+        <entry key="parameterIndex" value="10"/>
+    </metadata>
+    </port>
+    <port name="interpolation" type="in">
+    <metadata>
+        <entry key="parameterIndex" value="3"/>
+    </metadata>
+    </port>
+    <port color="0.6706 0.6118 0.2471" name="uvset" type="in">
     <tags>
-      <tag name="float"/>
+        <tag name="string"/>
     </tags>
-  </port>
-  <port name="out.b" type="out">
+    <metadata>
+        <entry key="parameterIndex" value="11"/>
+    </metadata>
+    </port>
+    <port name="use_implicit_uvs" type="in">
+    <metadata>
+        <entry key="parameterIndex" value="4"/>
+    </metadata>
+    </port>
+    <port name="wrap_uvs" type="in">
+    <metadata>
+        <entry key="parameterIndex" value="5"/>
+    </metadata>
+    </port>
+    <port color="0.6706 0.6118 0.2471" name="ramp_Interpolation" type="in">
     <tags>
-      <tag name="float"/>
+        <tag name="string"/>
     </tags>
-  </port>
-  <group_parameter name="ramp_rgb">
-    <string_parameter name="name" value="ramp_rgb"/>
+    <metadata>
+        <entry key="parameterIndex" value="12"/>
+    </metadata>
+    </port>
+    <port color="0.1843 0.4863 0.4824" name="ramp" type="in">
+    <tags>
+        <tag name="byte or int or uint or boolean"/>
+    </tags>
+    <metadata>
+        <entry key="parameterIndex" value="13"/>
+    </metadata>
+    </port>
+    <port name="out" type="out">
+    <tags>
+        <tag name="rgb"/>
+    </tags>
+    </port>
+    <port color="0.2471 0.3686 0.5725" name="out.r" type="out">
+    <tags>
+        <tag name="float"/>
+    </tags>
+    </port>
+    <port color="0.2471 0.3686 0.5725" name="out.g" type="out">
+    <tags>
+        <tag name="float"/>
+    </tags>
+    </port>
+    <port color="0.2471 0.3686 0.5725" name="out.b" type="out">
+    <tags>
+        <tag name="float"/>
+    </tags>
+    </port>
+    <group_parameter name="ramp_rgb4">
+    <string_parameter name="name" value="ramp_rgb4"/>
     <string_parameter name="nodeType" value="ramp_rgb"/>
-    <string_parameter name="__lastValue" value="h6aut5hcc3oqpdvnirpymir5qythvcbubl3u5n64wrobolvkwgdqFalse"/>
+    <string_parameter name="__lastValue" value="w4ztglhfqmhgqc3revxun4rdluys34duwru6ptnyrou3ipf5auc4False"/>
     <string_parameter name="__showHiddenParams" value="False"/>
     <group_parameter name="parameters">
-      <group_parameter name="type">
+        <group_parameter name="type">
         <number_parameter name="enable" value="0"/>
         <string_parameter name="value" value="custom"/>
         <string_parameter name="type" value="StringAttr"/>
-      </group_parameter>
-      <group_parameter name="input">
+        </group_parameter>
+        <group_parameter name="input">
         <number_parameter name="enable" value="0"/>
         <number_parameter name="value" value="0"/>
         <string_parameter name="type" value="FloatAttr"/>
-      </group_parameter>
-      <group_parameter name="position">
+        </group_parameter>
+        <group_parameter name="interpolation">
+            <number_parameter name="enable" value="0"/>
+            <number_parameter name="isDynamicArray" value="1"/>
+            <numberarray_parameter name="value" size="0" tupleSize="1">
+            </numberarray_parameter>
+            <string_parameter name="type" value="IntAttr"/>
+        </group_parameter>
+        <group_parameter name="use_implicit_uvs">
         <number_parameter name="enable" value="0"/>
-        <number_parameter name="isDynamicArray" value="1"/>
-        <numberarray_parameter name="value" size="0" tupleSize="1">
-        </numberarray_parameter>
-        <string_parameter name="type" value="FloatAttr"/>
-      </group_parameter>
-      <group_parameter name="color">
+        <string_parameter name="value" value="off"/>
+        <string_parameter name="type" value="StringAttr"/>
+        </group_parameter>
+        <group_parameter name="wrap_uvs">
         <number_parameter name="enable" value="0"/>
-        <number_parameter name="isDynamicArray" value="1"/>
-        <numberarray_parameter name="value" size="0" tupleSize="3">
-        </numberarray_parameter>
-        <string_parameter name="type" value="FloatAttr"/>
-      </group_parameter>
-      <group_parameter name="interpolation">
-        <number_parameter name="enable" value="0"/>
-        <number_parameter name="isDynamicArray" value="1"/>
-        <numberarray_parameter name="value" size="0" tupleSize="1">
-        </numberarray_parameter>
+        <number_parameter name="value" value="0"/>
         <string_parameter name="type" value="IntAttr"/>
-      </group_parameter>
-      <group_parameter name="__unused"/>
+        </group_parameter>
+        <group_parameter name="position">
+            <number_parameter name="enable" value="0"/>
+            <number_parameter name="isDynamicArray" value="1"/>
+            <numberarray_parameter name="value" size="0" tupleSize="1">
+            </numberarray_parameter>
+            <string_parameter name="type" value="FloatAttr"/>
+        </group_parameter>
+        <group_parameter name="color">
+            <number_parameter name="enable" value="0"/>
+            <number_parameter name="isDynamicArray" value="1"/>
+            <numberarray_parameter name="value" size="0" tupleSize="3">
+            </numberarray_parameter>
+            <string_parameter name="type" value="FloatAttr"/>
+        </group_parameter>
+        <group_parameter name="uvset">
+            <number_parameter name="enable" value="0"/>
+            <string_parameter name="value" value=""/>
+            <string_parameter name="type" value="StringAttr"/>
+        </group_parameter>
+        <group_parameter name="ramp_Interpolation">
+            <number_parameter name="enable" value="0"/>
+            <string_parameter name="value" value="catmull-rom"/>
+            <string_parameter name="type" value="StringAttr"/>
+        </group_parameter>
+        <group_parameter name="ramp">
+            <number_parameter name="enable" value="0"/>
+            <number_parameter name="value" value="0"/>
+            <string_parameter name="type" value="IntAttr"/>
+        </group_parameter>
+        <group_parameter name="__unused"/>
     </group_parameter>
     <group_parameter name="publicInterface">
-      <string_parameter name="namePrefix" value=""/>
-      <string_parameter name="pagePrefix" value=""/>
-      <string_parameter name="nameRegExFind" value=""/>
-      <string_parameter name="nameRegExReplace" value=""/>
-      <string_parameter name="pageRegExFind" value=""/>
-      <string_parameter name="pageRegExReplace" value=""/>
+        <string_parameter name="namePrefix" value=""/>
+        <string_parameter name="pagePrefix" value=""/>
+        <string_parameter name="nameRegExFind" value=""/>
+        <string_parameter name="nameRegExReplace" value=""/>
+        <string_parameter name="pageRegExFind" value=""/>
+        <string_parameter name="pageRegExReplace" value=""/>
     </group_parameter>
     <string_parameter name="forceRefresh" value=""/>
-  </group_parameter>
+    </group_parameter>
 </node>

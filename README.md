@@ -4,16 +4,16 @@ Easily copy shading nodes from [Maya](http://www.autodesk.com/products/maya/over
 
 ### Currently supported renderers:
 
-- #### [Arnold 4](https://www.solidangle.com/arnold/) with [alShaders](http://www.anderslanglands.com/alshaders/index.html)
+<!-- - #### [Arnold 4](https://www.solidangle.com/arnold/) with [alShaders](http://www.anderslanglands.com/alshaders/index.html)
   Supported nodes: aiAmbientOcclusion, aiImage, aiNoise, aiStandard, aiUserDataColor,
   aiUserDataFloat, aiVolumeCollector, alCellNoise, alCombineColor, alCombineFloat, alCurvature,
   alFlake, alFlowNoise, alFractal, alHair, alInputScalar, alInputVector, alJitterColor, alLayer,
   alLayerColor, alLayerFloat, alRemapColor, alRemapFloat, alSurface, alSwitchColor, alSwitchFloat,
-  alTriplanar, blendColors, bump2d, clamp, luminance, ramp, samplerInfo
+  alTriplanar, blendColors, bump2d, clamp, luminance, ramp, samplerInfo -->
 
 - #### [Arnold 5](https://www.arnoldrenderer.com/arnold/) (bate)
    Supported nodes: aiStandardSurface, aiImage, file, aiColorCorrect, aiNormalMap, aiBump2d,
-   multiplyDivide, aiMultiply, aiDivide, aiPow, aiLayerShader
+   multiplyDivide, aiMultiply, aiDivide, aiPow, aiLayerShader, ramp
 
 - #### [RenderMan 21.7+](https://renderman.pixar.com/)
   Supported nodes: aaOceanPrmanShader, PxrAdjustNormal, PxrAovLight, PxrAttribute,
@@ -70,13 +70,15 @@ maya2katana.copy()
 ![Resulting Katana shading network](doc/katana.jpg)
 
 ### Arnold 5 escription
+### Incompatible with "Arnold 4" (与阿诺德4不兼容)
 Description currently supported: (当前支持的描述)
  1. Maya File to aiImage (Maya文件转为aiImage)
     - Supported attributes (支持的属性): Image Name, Color Space, Color Gain, Color Offset
  2. aiImage add Color Space support
+ 3. Maya Ramp to Arnold Ramp_RGB (Maya渐变转为阿诺德渐变)
 
-Currently existing problems: (当前存在的问题)
- - Does not convert image format to .TX (不将图像格式转换为 .TX)
+<!-- Currently existing problems: (当前存在的问题) -->
+ <!-- - Does not convert image format to .TX (不将图像格式转换为 .TX) -->
 
 
 ### Integrations
