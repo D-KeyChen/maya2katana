@@ -13,7 +13,7 @@ Easily copy shading nodes from [Maya](http://www.autodesk.com/products/maya/over
 
 - #### [Arnold 5](https://www.arnoldrenderer.com/arnold/) (bate)
    Supported nodes: aiStandardSurface, aiImage, file, aiColorCorrect, aiNormalMap, aiBump2d,
-   multiplyDivide, aiMultiply, aiDivide, aiPow, aiLayerShader, ramp
+   multiplyDivide, aiMultiply, aiDivide, aiPow, aiLayerShader, ramp, blendColors
 
 - #### [RenderMan 21.7+](https://renderman.pixar.com/)
   Supported nodes: aaOceanPrmanShader, PxrAdjustNormal, PxrAovLight, PxrAttribute,
@@ -76,6 +76,7 @@ Description currently supported: (当前支持的描述)
     - Supported attributes (支持的属性): Image Name, Color Space, Color Gain, Color Offset
  2. aiImage add Color Space support
  3. Maya Ramp to Arnold Ramp_RGB (Maya渐变转为阿诺德渐变)
+ 4. Maya BlendColors to Arnold Mix_RGBA (Maya颜色混合转为阿诺德混合颜色)
 
 <!-- Currently existing problems: (当前存在的问题) -->
  <!-- - Does not convert image format to .TX (不将图像格式转换为 .TX) -->

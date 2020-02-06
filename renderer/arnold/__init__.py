@@ -249,7 +249,9 @@ def process_ramp(xml_group, node):
         )
         ramp_type = "custom"
     key_value = "color" if node_type == "ramp" else "value"
-    interpolation = 0 if attributes["interpolation"] == 0 else 2
+    interpolation = 0 if attributes["interpolation"] == 0 else 3 if attributes["interpolation"] == 4 else 2
+    print attributes["interpolation"]
+    print interpolation
     color_entry_list_size = 2 + cmds.getAttr(
         "{node}.colorEntryList".format(node=node_name), size=True
     )
@@ -315,25 +317,25 @@ def process_ramp(xml_group, node):
                     for j in range(tuple_size):
                         sub_value = ET.SubElement(value_node, "number_parameter")
                         sub_value.attrib["name"] = "i" + str(i * tuple_size + j)
-                        sub_value.attrib["value"] = str(value[j])
+                        sub_value.attrib["value"] = str(value[j] if tuple_size > 1 else value)
                     for j in range(tuple_size):
                         sub_value = ET.SubElement(value_node, "number_parameter")
                         sub_value.attrib["name"] = "i" + str(i * tuple_size + j + 3)
-                        sub_value.attrib["value"] = str(value[j])
+                        sub_value.attrib["value"] = str(value[j] if tuple_size > 1 else value)
                 elif i < (color_entry_list_size - 3):
                     for j in range(tuple_size):
                         sub_value = ET.SubElement(value_node, "number_parameter")
                         sub_value.attrib["name"] = "i" + str(i * tuple_size + j + 3)
-                        sub_value.attrib["value"] = str(value[j])
+                        sub_value.attrib["value"] = str(value[j] if tuple_size > 1 else value)
                 else:
                     for j in range(tuple_size):
                         sub_value = ET.SubElement(value_node, "number_parameter")
                         sub_value.attrib["name"] = "i" + str(i * tuple_size + j + 3)
-                        sub_value.attrib["value"] = str(value[j])
+                        sub_value.attrib["value"] = str(value[j] if tuple_size > 1 else value)
                     for j in range(tuple_size):
                         sub_value = ET.SubElement(value_node, "number_parameter")
                         sub_value.attrib["name"] = "i" + str(i * tuple_size + j + 6)
-                        sub_value.attrib["value"] = str(value[j])
+                        sub_value.attrib["value"] = str(value[j] if tuple_size > 1 else value)
         for i in range(color_entry_list_size):
             if dest_key == "interpolation":
                 value = str(interpolation)
@@ -578,7 +580,6 @@ premap = {
     "alRemapColor": {},
     "alRemapFloat": {},
     "clamp": {},
-    "ramp": {"preprocess": preprocess_ramp},
     "aiAmbientOcclusion": {"type": "ambientOcclusion"},
     "bump2d": {"preprocess": preprocess_bump},
     "samplerInfo": {"preprocess": preprocess_sampler},
@@ -591,7 +592,6 @@ premap = {
     "aiUserDataColor": {"type": "user_data_rgb"},
     "aiWriteFloat": {"type": "aov_write_float"},
     "aiWriteColor": {"type": "aov_write_rgb"},
-    "blendColors": {"type": "mix"},
     # Arnold 5 add (bate)
     "aiStandardSurface": {"type": "standard_surface"},
     "aiImage": {"preprocess": preprocess_image},
@@ -608,6 +608,8 @@ premap = {
     "aiDivide": {"type": "divide"},
     "aiPow": {"type": "pow"},
     "aiLayerShader": {},
+    "ramp": {"preprocess": preprocess_ramp},
+    "blendColors": {"type": "mix_rgba"},
 }
 
 # Mappings keywords:
@@ -1712,5 +1714,14 @@ mappings = {
         "customProcess": process_ramp,
         #'uCoord': 'input',
         #'vCoord': 'input',
+    },
+    "mix_rgba": {
+        "input1": None,
+        "input2": None,
+        "mix": None,
+        # Inputs in Maya and Katana are crossed!
+        "color1": "input2",
+        "color2": "input1",
+        "blender": "mix",
     },
 }
