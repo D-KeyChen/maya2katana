@@ -444,10 +444,11 @@ def preprocess_image(node): # Arnold 5 add (bate)
         node["attributes"]["twrap"] = 0
     if float(cmds.pluginInfo('mtoa', query = True, version = True)[0]) >= 2.0:
         node["type"] = "image_ar5"
-        if node["attributes"]["colorSpace"] == "Raw":
-            node["attributes"]["colorSpace"] = "linear"
-        else:
-            node["attributes"]["colorSpace"] = "auto"
+        node["attributes"]["colorSpace"] = "linear"
+        # if node["attributes"]["colorSpace"] == "Raw":
+        #     node["attributes"]["colorSpace"] = "linear"
+        # else:
+        #     node["attributes"]["colorSpace"] = "auto"
     else:
         node["type"] = "image"
     nodes[node_name] = node
