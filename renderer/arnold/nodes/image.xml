@@ -1,5 +1,8 @@
 <node baseType="ArnoldShadingNode" edited="true" name="image" selected="true" type="ArnoldShadingNode">
-  <port name="filename" type="in"/>
+  <port name="filename" type="in">
+  </port>
+  <port name="color_space" type="in">
+  </port>
   <port name="filter" type="in">
     <metadata>
       <entry key="page" value="Sampling"/>
@@ -72,13 +75,19 @@
   </port>
   <port name="uvcoords.x" type="in">
     <tags>
-      <tag name="float or rgb or rgba or vector or point or point2"/>
+      <tag name="float or rgb or rgba or vector or vector2"/>
     </tags>
+    <metadata>
+      <entry key="page" value="Coordinates"/>
+    </metadata>
   </port>
   <port name="uvcoords.y" type="in">
     <tags>
-      <tag name="float or rgb or rgba or vector or point or point2"/>
+      <tag name="float or rgb or rgba or vector or vector2"/>
     </tags>
+    <metadata>
+      <entry key="page" value="Coordinates"/>
+    </metadata>
   </port>
   <port name="uvset" type="in">
     <metadata>
@@ -92,18 +101,27 @@
   </port>
   <port name="multiply.r" type="in">
     <tags>
-      <tag name="float or rgb or rgba or vector or point or point2"/>
+      <tag name="float or rgb or rgba or vector or vector2"/>
     </tags>
+    <metadata>
+      <entry key="page" value="Output"/>
+    </metadata>
   </port>
   <port name="multiply.g" type="in">
     <tags>
-      <tag name="float or rgb or rgba or vector or point or point2"/>
+      <tag name="float or rgb or rgba or vector or vector2"/>
     </tags>
+    <metadata>
+      <entry key="page" value="Output"/>
+    </metadata>
   </port>
   <port name="multiply.b" type="in">
     <tags>
-      <tag name="float or rgb or rgba or vector or point or point2"/>
+      <tag name="float or rgb or rgba or vector or vector2"/>
     </tags>
+    <metadata>
+      <entry key="page" value="Output"/>
+    </metadata>
   </port>
   <port name="offset" type="in">
     <metadata>
@@ -112,47 +130,50 @@
   </port>
   <port name="offset.r" type="in">
     <tags>
-      <tag name="float or rgb or rgba or vector or point or point2"/>
+      <tag name="float or rgb or rgba or vector or vector2"/>
     </tags>
+    <metadata>
+      <entry key="page" value="Output"/>
+    </metadata>
   </port>
   <port name="offset.g" type="in">
     <tags>
-      <tag name="float or rgb or rgba or vector or point or point2"/>
+      <tag name="float or rgb or rgba or vector or vector2"/>
     </tags>
+    <metadata>
+      <entry key="page" value="Output"/>
+    </metadata>
   </port>
   <port name="offset.b" type="in">
     <tags>
-      <tag name="float or rgb or rgba or vector or point or point2"/>
+      <tag name="float or rgb or rgba or vector or vector2"/>
     </tags>
-  </port>
-  <port name="ignore_missing_tiles" type="in">
     <metadata>
-      <entry key="page" value="Tags"/>
+      <entry key="page" value="Output"/>
     </metadata>
   </port>
-  <port name="missing_tile_color" type="in">
-    <metadata>
-      <entry key="page" value="Tags"/>
-    </metadata>
+  <port name="ignore_missing_textures" type="in">
   </port>
-  <port name="missing_tile_color.r" type="in">
+  <port name="missing_texture_color" type="in">
+  </port>
+  <port name="missing_texture_color.r" type="in">
     <tags>
-      <tag name="float or rgb or rgba or vector or point or point2"/>
+      <tag name="float or rgb or rgba or vector or vector2"/>
     </tags>
   </port>
-  <port name="missing_tile_color.g" type="in">
+  <port name="missing_texture_color.g" type="in">
     <tags>
-      <tag name="float or rgb or rgba or vector or point or point2"/>
+      <tag name="float or rgb or rgba or vector or vector2"/>
     </tags>
   </port>
-  <port name="missing_tile_color.b" type="in">
+  <port name="missing_texture_color.b" type="in">
     <tags>
-      <tag name="float or rgb or rgba or vector or point or point2"/>
+      <tag name="float or rgb or rgba or vector or vector2"/>
     </tags>
   </port>
-  <port name="missing_tile_color.a" type="in">
+  <port name="missing_texture_color.a" type="in">
     <tags>
-      <tag name="float or rgb or rgba or vector or point or point2"/>
+      <tag name="float or rgb or rgba or vector or vector2"/>
     </tags>
   </port>
   <port name="out" type="out">
@@ -183,7 +204,7 @@
   <group_parameter name="image">
     <string_parameter name="name" value="image"/>
     <string_parameter name="nodeType" value="image"/>
-    <string_parameter name="__lastValue" value="w4g7rzmwupey7sjezd25oggrjeafhoppikoeaslykih5vgz26mzaFalse"/>
+    <string_parameter name="__lastValue" value="qzm2krsnxcyg6hqjhub7tvhpcifxlh5yl5nl6q4qsvqtzfcaa3ciFalse"/>
     <string_parameter name="__showHiddenParams" value="False"/>
     <group_parameter name="parameters">
       <group_parameter name="filename">
@@ -287,12 +308,17 @@
         </numberarray_parameter>
         <string_parameter name="type" value="FloatAttr"/>
       </group_parameter>
-      <group_parameter name="ignore_missing_tiles">
+      <group_parameter name="color_space">
+        <number_parameter name="enable" value="0"/>
+        <string_parameter name="value" value="auto"/>
+        <string_parameter name="type" value="StringAttr"/>
+      </group_parameter>
+      <group_parameter name="ignore_missing_textures">
         <number_parameter name="enable" value="0"/>
         <number_parameter name="value" value="0"/>
         <string_parameter name="type" value="IntAttr"/>
       </group_parameter>
-      <group_parameter name="missing_tile_color">
+      <group_parameter name="missing_texture_color">
         <number_parameter name="enable" value="0"/>
         <numberarray_parameter name="value" size="4" tupleSize="4">
           <number_parameter name="i0" value="0"/>

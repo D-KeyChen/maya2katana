@@ -438,19 +438,12 @@ def preprocess_image(node): # Arnold 5 add (bate)
     """
     nodes = {}
     node_name = node["name"]
+    node["type"] = "image"
     if node["attributes"]["swrap"] == 5:
         node["attributes"]["swrap"] = 0
     if node["attributes"]["twrap"] == 5:
         node["attributes"]["twrap"] = 0
-    if float(cmds.pluginInfo('mtoa', query = True, version = True)[0]) >= 2.0:
-        node["type"] = "image_ar5"
-        node["attributes"]["colorSpace"] = "linear"
-        # if node["attributes"]["colorSpace"] == "Raw":
-        #     node["attributes"]["colorSpace"] = "linear"
-        # else:
-        #     node["attributes"]["colorSpace"] = "auto"
-    else:
-        node["type"] = "image"
+    node["attributes"]["colorSpace"] = "linear"
     nodes[node_name] = node
     return nodes
 
@@ -461,15 +454,16 @@ def preprocess_file(node):
     """
     nodes = {}
     node_name = node["name"]
+    node["type"] = "image"
     node["attributes"]["filename"] = node["attributes"]["fileTextureName"]
     node["attributes"]["filter"] = 3
     node["attributes"]["multiply"] = node["attributes"]["colorGain"]
     node["attributes"]["offset"] = node["attributes"]["colorOffset"] # Existence of bug
-    node["type"] = "image_ar5"
-    if node["attributes"]["colorSpace"] == "Raw":
-            node["attributes"]["colorSpace"] = "linear"
-    else:
-            node["attributes"]["colorSpace"] = "auto"
+    node["attributes"]["colorSpace"] = "linear"
+    if node["attributes"]["uvTilingMode"] == 3:
+        filename = node["attributes"]["filename"]
+        filename = re.sub(r"\.\d+\.", ".<UDIM>.", filename)
+        node["attributes"]["filename"] = filename
     nodes[node_name] = node
     return nodes
 
@@ -810,29 +804,7 @@ mappings = {
         "multiply": None,
         "add": None,
     },
-    "luminance": {"value": "input",},
-    "image": {
-        "customColor": (0.36, 0.25, 0.38),
-        "filename": replace_tx,
-        "filter": ["closest", "bilinear", "bicubic", "smart_bicubic"],
-        "mipmapBias": "mipmap_bias",
-        "ignoreMissingTiles": (
-            "ignore_missing_tiles",
-            {"missingTileColor": "missing_tile_color",},
-        ),
-        "multiply": None,
-        "offset": None,
-        "uvset": None,
-        "uvcoords": None,
-        "soffset": None,
-        "toffset": None,
-        "swrap": ["periodic", "black", "clamp", "mirror", "file"],
-        "twrap": ["periodic", "black", "clamp", "mirror", "file"],
-        "sscale": None,
-        "tscale": None,
-        "sflip": None,
-        "tflip": None,
-        "swapSt": "swap_st",
+    "luminance": {"value": "input",
     },
     "alCombineColor": {
         "input1": None,
@@ -1578,14 +1550,12 @@ mappings = {
             'id8': None,
         }
     },
-    "image_ar5": {
-        'customColor': (0.36, 0.25, 0.38),
+    "image": {
+        "customColor": (0.36, 0.25, 0.38),
         "filename": replace_tx,
         # "useFrameExtension": "", # Retain
         # "frame": "", # Retain
-        "filter": (
-            "filter",
-            ["closest", "bilinear", "bicubic", "smart_bicubic"]),
+        "filter": ["closest", "bilinear", "bicubic", "smart_bicubic"],
         "mipmapBias": "mipmap_bias",
         "multiply": None,
         "offset": None,
@@ -1596,12 +1566,8 @@ mappings = {
         "uvcoords": None,
         "soffset": None,
         "toffset": None,
-        "swrap": (
-            "swrap", 
-            ["periodic", "black", "clamp", "mirror", "file"]),
-        "twrap": (
-            "twrap", 
-            ["periodic", "black", "clamp", "mirror", "file"]),
+        "swrap": ["periodic", "black", "clamp", "mirror", "file"],
+        "twrap": ["periodic", "black", "clamp", "mirror", "file"],
         "sscale": None,
         "tscale": None,
         "sflip": None,
