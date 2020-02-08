@@ -474,10 +474,6 @@ def preprocess_network_material(node):
     node_name = node["name"]
     connections = node["connections"]
     new_connections = {}
-    if float(cmds.pluginInfo('mtoa', query = True, version = True)[0]) >= 2.0:
-        node["type"] = "networkMaterial_ar5"
-    else:
-        node["type"] = "networkMaterial"
     for i in ["aiSurfaceShader", "surfaceShader", "aiVolumeShader", "volumeShader"]:
         connection = connections.get(i)
         if connection:
@@ -1308,10 +1304,7 @@ mappings = {
         "invertNormals": "invert_normals",
         "selfOnly": "self_only",
     },
-    "bump2d": {"bumpValue": "bump_map", "bumpDepth": "bump_height",},
-    "networkMaterial": {
-        "customColor": (0.4, 0.35, 0.2),
-        "customProcess": process_network_material,
+    "bump2d": {"bumpValue": "bump_map", "bumpDepth": "bump_height",
     },
     "mix": {
         "input1": None,
@@ -1611,7 +1604,7 @@ mappings = {
         "colorToSigned": "color_to_signed",
         "tangentSpace": "tangent_space",
     },
-    "networkMaterial_ar5": {
+    "networkMaterial": {
         "customColor": (0.4, 0.35, 0.2),
         "customProcess": process_network_material,
     },
