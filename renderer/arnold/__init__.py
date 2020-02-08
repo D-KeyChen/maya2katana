@@ -483,6 +483,7 @@ def preprocess_network_material(node):
     if displacement_connection:
         new_connections["arnoldDisplacement"] = displacement_connection
     node["connections"] = new_connections
+    node["type"] = "networkMaterial"
     nodes[node_name] = node
     return nodes
 
