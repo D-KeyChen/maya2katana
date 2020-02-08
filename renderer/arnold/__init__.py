@@ -250,8 +250,6 @@ def process_ramp(xml_group, node):
         ramp_type = "custom"
     key_value = "color" if node_type == "ramp" else "value"
     interpolation = 0 if attributes["interpolation"] == 0 else 3 if attributes["interpolation"] == 4 else 2
-    print attributes["interpolation"]
-    print interpolation
     color_entry_list_size = 2 + cmds.getAttr(
         "{node}.colorEntryList".format(node=node_name), size=True
     )
