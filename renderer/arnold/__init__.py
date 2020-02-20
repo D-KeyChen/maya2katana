@@ -190,22 +190,6 @@ def preprocess_ramp(node):
     return nodes
 
 
-def process_network_material(xml_group, node):
-    """
-    Process NetworkMaterial to remove extra input ports
-    """
-    if float(cmds.pluginInfo('mtoa', query = True, version = True)[0]) >= 2.0:
-        for i in ["arnoldSurface", "arnoldDisplacement"]:
-            if i not in node["connections"]:
-                parameter = xml_group.find("./port[@name='{param}']".format(param=i))
-                xml_group.remove(parameter)
-    else:
-        for i in ["arnold_surface", "arnoldBump", "arnoldDisplacement"]:
-            if i not in node["connections"]:
-                parameter = xml_group.find("./port[@name='{param}']".format(param=i))
-                xml_group.remove(parameter)
-
-
 def process_ramp(xml_group, node):
     """
     Process ramp and rampFloat
@@ -391,41 +375,17 @@ def preprocess_displacement(node):
     return nodes
 
 
-def override_clamp_params(key, value):
+def preprocess_clamp(node):
     """
-    Maya has an RGB clamp but Katana uses float value so we need to convert
+    Maya has an RGB clamp but Katana uses float value or RGB so we need to convert mode
     """
-    if key == "min":
-        value = min(value)
-    if key == "max":
-        value = max(value)
-    return value
-
-
-def override_hair_params(key, value):
-    """
-    Special overrides requested by the artists
-    """
-    if key == "dualDepth":
-        value = 1
-    if key == "diffuseIndirectStrength":
-        value = 1
-    if key == "extraSamplesDiffuse":
-        value = 2
-    if key == "extraSamplesGlossy":
-        value = 2
-    return value
-
-
-def override_material_params(key, value):
-    """
-    Special overrides requested by the artists
-    """
-    if key == "specular1IndirectClamp" or key == "specular2IndirectClamp":
-        value = 1
-    if key == "specular1Distribution" or key == "specular2Distribution":
-        value = "ggx"
-    return value
+    nodes = {}
+    node_name = node["name"]
+    node["attributes"]["mode"] = "1"
+    node["attributes"]["minColor"] = node["attributes"]["min"]
+    node["attributes"]["maxColor"] = node["attributes"]["max"]
+    nodes[node_name] = node
+    return nodes
 
 
 def preprocess_image(node):
@@ -524,6 +484,16 @@ def postprocess_network_material(node, all_nodes):
     return nodes
 
 
+def process_network_material(xml_group, node):
+    """
+    Process NetworkMaterial to remove extra input ports
+    """
+    for i in ["arnoldSurface", "arnoldDisplacement"]:
+        if i not in node["connections"]:
+            parameter = xml_group.find("./port[@name='{param}']".format(param=i))
+            xml_group.remove(parameter)
+
+
 def preprocess_multiplyDivide(node):
     nodes = {}
     node_name = node["name"]
@@ -537,6 +507,32 @@ def preprocess_multiplyDivide(node):
         node["type"] = "multiply"
     nodes[node_name] = node
     return nodes
+
+
+def override_hair_params(key, value):
+    """
+    Special overrides requested by the artists
+    """
+    if key == "dualDepth":
+        value = 1
+    if key == "diffuseIndirectStrength":
+        value = 1
+    if key == "extraSamplesDiffuse":
+        value = 2
+    if key == "extraSamplesGlossy":
+        value = 2
+    return value
+
+
+def override_material_params(key, value):
+    """
+    Special overrides requested by the artists
+    """
+    if key == "specular1IndirectClamp" or key == "specular2IndirectClamp":
+        value = 1
+    if key == "specular1Distribution" or key == "specular2Distribution":
+        value = "ggx"
+    return value
 
 
 # Preprocess keywords:
@@ -566,7 +562,7 @@ premap = {
     "alTriplanar": {},
     "alRemapColor": {},
     "alRemapFloat": {},
-    "clamp": {},
+    "clamp": {"preprocess": preprocess_clamp},
     "aiAmbientOcclusion": {"type": "ambientOcclusion"},
     "bump2d": {"preprocess": preprocess_bump},
     "samplerInfo": {"preprocess": preprocess_sampler},
@@ -598,6 +594,7 @@ premap = {
     "blendColors": {"type": "mix_rgba"},
     "aiStandardHair": {"type": "standard_hair"},
     "aiSpaceTransform": {"type": "space_transform"},
+    "aiClamp": {"type": "clamp"},
 }
 
 # Mappings keywords:
@@ -797,7 +794,8 @@ mappings = {
         "multiply": None,
         "add": None,
     },
-    "luminance": {"value": "input",
+    "luminance": {
+        "value": "input",
     },
     "alCombineColor": {
         "input1": None,
@@ -1239,8 +1237,11 @@ mappings = {
     },
     "clamp": {
         "input": None,
-        "min": override_clamp_params,
-        "max": override_clamp_params,
+        "mode": None,
+        "minColor": "min_color",
+        "maxColor": "max_color",
+        "min": None,
+        "max": None,
     },
     "rampFloat": {
         "customProcess": process_ramp,
@@ -1437,8 +1438,12 @@ mappings = {
         "output_max": None,
         "smoothstep": None,
     },
-    "user_data_rgb": {"colorAttrName": "attribute", "defaultValue": "default",},
-    "user_data_float": {"floatAttrName": "attribute", "defaultValue": "default",},
+    "user_data_rgb": {
+        "colorAttrName": "attribute", "defaultValue": "default",
+    },
+    "user_data_float": {
+        "floatAttrName": "attribute", "defaultValue": "default",
+    },
     "aov_write_rgb": {
         "beauty": "passthrough",
         "input": "aov_input",
