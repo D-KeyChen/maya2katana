@@ -101,15 +101,13 @@ def preprocess_bump(node):
     attributes = node["attributes"]
     # {0: 'bump', 1: 'tangent', 2: 'object'}
     if attributes.get("bumpInterp") == 1:
-        node["type"] = "spaceTransform"
+        node["type"] = "space_transform"
         attributes["type"] = 2  # normal
-        attributes["invert_x"] = 0
-        attributes["invert_y"] = 0
-        attributes["invert_z"] = 0
+        attributes["bumpValue"] = (0, 0, 0)
         attributes["from"] = 4  # tangent
         attributes["to"] = 0  # world
-        attributes["color_to_signed"] = 1
-        attributes["set_normal"] = 1
+        # attributes["color_to_signed"] = 1
+        # attributes["set_normal"] = 1
     nodes[node_name] = node
     return nodes
 
@@ -430,7 +428,7 @@ def override_material_params(key, value):
     return value
 
 
-def preprocess_image(node): # Arnold 5 add (bate)
+def preprocess_image(node):
     """
     Is the image Arnold 5
     """
@@ -537,7 +535,6 @@ def preprocess_multiplyDivide(node):
         node["attributes"]["exponent"] = node["attributes"]["input2"]
     else:
         node["type"] = "multiply"
-    print node["type"]
     nodes[node_name] = node
     return nodes
 
@@ -582,7 +579,6 @@ premap = {
     "aiUserDataColor": {"type": "user_data_rgb"},
     "aiWriteFloat": {"type": "aov_write_float"},
     "aiWriteColor": {"type": "aov_write_rgb"},
-    # Arnold 5 add (bate)
     "aiStandardSurface": {"type": "standard_surface"},
     "aiImage": {"preprocess": preprocess_image},
     "file": {"preprocess": preprocess_file},
@@ -592,7 +588,7 @@ premap = {
         "preprocess": preprocess_network_material,
         "postprocess": postprocess_network_material,
     },
-    "aiBump2d": {"type": "bump2d_ar5"},
+    "aiBump2d": {"type": "bump2d"},
     "multiplyDivide": {"preprocess": preprocess_multiplyDivide},
     "aiMultiply": {"type": "multiply"},
     "aiDivide": {"type": "divide"},
@@ -600,6 +596,8 @@ premap = {
     "aiLayerShader": {},
     "ramp": {"preprocess": preprocess_ramp},
     "blendColors": {"type": "mix_rgba"},
+    "aiStandardHair": {"type": "standard_hair"},
+    "aiSpaceTransform": {"type": "space_transform"},
 }
 
 # Mappings keywords:
@@ -1305,8 +1303,6 @@ mappings = {
         "invertNormals": "invert_normals",
         "selfOnly": "self_only",
     },
-    "bump2d": {"bumpValue": "bump_map", "bumpDepth": "bump_height",
-    },
     "mix": {
         "input1": None,
         "input2": None,
@@ -1421,19 +1417,17 @@ mappings = {
         "color2": None,
         "P": None,
     },
-    "spaceTransform": {
+    "space_transform": {
+        "input": None,
         "bumpValue": "input",
-        "bumpDepth": "scale",
         "type": ["point", "vector", "normal"],
-        "order": ["XYZ", "XZY", "YXZ", "YZX", "ZXY", "ZYX"],
-        "invert_x": None,
-        "invert_y": None,
-        "invert_z": None,
-        "color_to_signed": None,
         "from": ["world", "object", "camera", "screen", "tangent"],
         "to": ["world", "object", "camera", "screen", "tangent"],
         "tangent": None,
-        "set_normal": None,
+        "normal": None,
+        "normalize": None,
+        "scale": None,
+        "bumpDepth": "scale",
     },
     "range": {
         "input": None,
@@ -1456,7 +1450,6 @@ mappings = {
         "input": "aov_input",
         "aovName": "aov_name",
     },
-    # Arnold 5 add (bate)
     "standard_surface": {
         'customColor': (0.05, 0.26, 0.09),
         'base': {
@@ -1609,9 +1602,11 @@ mappings = {
         "customColor": (0.4, 0.35, 0.2),
         "customProcess": process_network_material,
     },
-    "bump2d_ar5": {
+    "bump2d": {
         "bumpMap": "bump_map",
+        "bumpValue": "bump_map",
         "bumpHeight": "bump_height",
+        "bumpDepth": "bump_height",
         "normal": None,
     },
     "multiply": {
@@ -1682,5 +1677,57 @@ mappings = {
         "color1": "input2",
         "color2": "input1",
         "blender": "mix",
+    },
+    "standard_hair": {
+        'customColor': (0.05, 0.26, 0.09),
+        'base': {
+            'baseColor': 'base_color',
+            'melanin': None,
+            'melaninRedness': 'melanin_redness',
+            'melaninRandomize': "melanin_randomize",
+        },
+        'specular': {
+            'roughness': None,
+            'roughnessAnisotropic': 'roughness_anisotropic',
+            "roughnessAzimuthal": "roughness_azimuthal",
+            'ior': None,
+            'shift': None,
+        },
+        'tint': {
+            'specularTint': 'specular_tint',
+            'specular2Tint': 'specular2_tint',
+            'transmissionTint': 'transmission_tint',
+        },
+        'diffuse': {
+            'diffuseColor': 'diffuse_color',
+        },
+        'emission': {
+            'emissionColor': 'emission_color',
+            'opacity': None,
+        },
+        "advanced": {
+            'indirectDiffuse': 'indirect_diffuse',
+            'indirectSpecular': 'indirect_specular',
+            'extraDepth': 'extra_depth',
+            'extraSamples': 'extra_samples',
+        },
+        'aovs': {
+            'aovId1': 'aov_id1',
+            'id1': None,
+            'aovId2': 'aov_id2',
+            'id2': None,
+            'aovId3': 'aov_id3',
+            'id3': None,
+            'aovId4': 'aov_id4',
+            'id4': None,
+            'aovId5': 'aov_id5',
+            'id5': None,
+            'aovId6': 'aov_id6',
+            'id6': None,
+            'aovId7': 'aov_id7',
+            'id7': None,
+            'aovId8': 'aov_id8',
+            'id8': None,
+        }
     },
 }

@@ -1,0 +1,696 @@
+<node baseType="ArnoldShadingNode" edited="true" name="standard_hair" ns_colorb="0.050000" ns_colorg="0.260000" ns_colorr="0.090000" ns_errorGlow="0.000000" ns_expandedPages="Outputs | Parameters" ns_fromContext="legacy" selected="true" type="ArnoldShadingNode" x="-28.500000" y="-178.000000">
+    <port name="base" type="in">
+    </port>
+    <port name="base_color" type="in">
+    </port>
+    <port color="0.2471 0.3686 0.5725" name="base_color.r" type="in">
+    <tags>
+        <tag name="float or rgb or rgba or vector or vector2"/>
+    </tags>
+    </port>
+    <port color="0.2471 0.3686 0.5725" name="base_color.g" type="in">
+    <tags>
+        <tag name="float or rgb or rgba or vector or vector2"/>
+    </tags>
+    </port>
+    <port color="0.2471 0.3686 0.5725" name="base_color.b" type="in">
+    <tags>
+        <tag name="float or rgb or rgba or vector or vector2"/>
+    </tags>
+    </port>
+    <port name="melanin" type="in">
+    </port>
+    <port name="melanin_redness" type="in">
+    </port>
+    <port name="melanin_randomize" type="in">
+    </port>
+    <port name="roughness" type="in">
+    </port>
+    <port name="roughness_azimuthal" type="in">
+    </port>
+    <port name="roughness_anisotropic" type="in">
+    </port>
+    <port name="ior" type="in">
+    </port>
+    <port name="shift" type="in">
+    </port>
+    <port name="specular_tint" type="in">
+    </port>
+    <port color="0.2471 0.3686 0.5725" name="specular_tint.r" type="in">
+    <tags>
+        <tag name="float or rgb or rgba or vector or vector2"/>
+    </tags>
+    </port>
+    <port color="0.2471 0.3686 0.5725" name="specular_tint.g" type="in">
+    <tags>
+        <tag name="float or rgb or rgba or vector or vector2"/>
+    </tags>
+    </port>
+    <port color="0.2471 0.3686 0.5725" name="specular_tint.b" type="in">
+    <tags>
+        <tag name="float or rgb or rgba or vector or vector2"/>
+    </tags>
+    </port>
+    <port name="specular2_tint" type="in">
+    </port>
+    <port color="0.2471 0.3686 0.5725" name="specular2_tint.r" type="in">
+    <tags>
+        <tag name="float or rgb or rgba or vector or vector2"/>
+    </tags>
+    </port>
+    <port color="0.2471 0.3686 0.5725" name="specular2_tint.g" type="in">
+    <tags>
+        <tag name="float or rgb or rgba or vector or vector2"/>
+    </tags>
+    </port>
+    <port color="0.2471 0.3686 0.5725" name="specular2_tint.b" type="in">
+    <tags>
+        <tag name="float or rgb or rgba or vector or vector2"/>
+    </tags>
+    </port>
+    <port name="transmission_tint" type="in">
+    </port>
+    <port color="0.2471 0.3686 0.5725" name="transmission_tint.r" type="in">
+    <tags>
+        <tag name="float or rgb or rgba or vector or vector2"/>
+    </tags>
+    </port>
+    <port color="0.2471 0.3686 0.5725" name="transmission_tint.g" type="in">
+    <tags>
+        <tag name="float or rgb or rgba or vector or vector2"/>
+    </tags>
+    </port>
+    <port color="0.2471 0.3686 0.5725" name="transmission_tint.b" type="in">
+    <tags>
+        <tag name="float or rgb or rgba or vector or vector2"/>
+    </tags>
+    </port>
+    <port name="diffuse" type="in">
+    </port>
+    <port name="diffuse_color" type="in">
+    </port>
+    <port color="0.2471 0.3686 0.5725" name="diffuse_color.r" type="in">
+    <tags>
+        <tag name="float or rgb or rgba or vector or vector2"/>
+    </tags>
+    </port>
+    <port color="0.2471 0.3686 0.5725" name="diffuse_color.g" type="in">
+    <tags>
+        <tag name="float or rgb or rgba or vector or vector2"/>
+    </tags>
+    </port>
+    <port color="0.2471 0.3686 0.5725" name="diffuse_color.b" type="in">
+    <tags>
+        <tag name="float or rgb or rgba or vector or vector2"/>
+    </tags>
+    </port>
+    <port name="emission" type="in">
+    </port>
+    <port name="emission_color" type="in">
+    </port>
+    <port color="0.2471 0.3686 0.5725" name="emission_color.r" type="in">
+    <tags>
+        <tag name="float or rgb or rgba or vector or vector2"/>
+    </tags>
+    </port>
+    <port color="0.2471 0.3686 0.5725" name="emission_color.g" type="in">
+    <tags>
+        <tag name="float or rgb or rgba or vector or vector2"/>
+    </tags>
+    </port>
+    <port color="0.2471 0.3686 0.5725" name="emission_color.b" type="in">
+    <tags>
+        <tag name="float or rgb or rgba or vector or vector2"/>
+    </tags>
+    </port>
+    <port name="opacity" type="in">
+    </port>
+    <port color="0.2471 0.3686 0.5725" name="opacity.r" type="in">
+    <tags>
+        <tag name="float or rgb or rgba or vector or vector2"/>
+    </tags>
+    </port>
+    <port color="0.2471 0.3686 0.5725" name="opacity.g" type="in">
+    <tags>
+        <tag name="float or rgb or rgba or vector or vector2"/>
+    </tags>
+    </port>
+    <port color="0.2471 0.3686 0.5725" name="opacity.b" type="in">
+    <tags>
+        <tag name="float or rgb or rgba or vector or vector2"/>
+    </tags>
+    </port>
+    <port name="indirect_diffuse" type="in">
+    </port>
+    <port name="indirect_specular" type="in">
+    </port>
+    <port name="extra_depth" type="in">
+    </port>
+    <port name="extra_samples" type="in">
+    </port>
+    <port name="aov_id1" type="in">
+    <metadata>
+        <entry key="page" value="ID AOVs"/>
+    </metadata>
+    </port>
+    <port name="id1" type="in">
+    <metadata>
+        <entry key="page" value="ID AOVs"/>
+    </metadata>
+    </port>
+    <port color="0.2471 0.3686 0.5725" name="id1.r" type="in">
+    <tags>
+        <tag name="float or rgb or rgba or vector or vector2"/>
+    </tags>
+    <metadata>
+        <entry key="page" value="ID AOVs"/>
+    </metadata>
+    </port>
+    <port color="0.2471 0.3686 0.5725" name="id1.g" type="in">
+    <tags>
+        <tag name="float or rgb or rgba or vector or vector2"/>
+    </tags>
+    <metadata>
+        <entry key="page" value="ID AOVs"/>
+    </metadata>
+    </port>
+    <port color="0.2471 0.3686 0.5725" name="id1.b" type="in">
+    <tags>
+        <tag name="float or rgb or rgba or vector or vector2"/>
+    </tags>
+    <metadata>
+        <entry key="page" value="ID AOVs"/>
+    </metadata>
+    </port>
+    <port name="aov_id2" type="in">
+    <metadata>
+        <entry key="page" value="ID AOVs"/>
+    </metadata>
+    </port>
+    <port name="id2" type="in">
+    <metadata>
+        <entry key="page" value="ID AOVs"/>
+    </metadata>
+    </port>
+    <port color="0.2471 0.3686 0.5725" name="id2.r" type="in">
+    <tags>
+        <tag name="float or rgb or rgba or vector or vector2"/>
+    </tags>
+    <metadata>
+        <entry key="page" value="ID AOVs"/>
+    </metadata>
+    </port>
+    <port color="0.2471 0.3686 0.5725" name="id2.g" type="in">
+    <tags>
+        <tag name="float or rgb or rgba or vector or vector2"/>
+    </tags>
+    <metadata>
+        <entry key="page" value="ID AOVs"/>
+    </metadata>
+    </port>
+    <port color="0.2471 0.3686 0.5725" name="id2.b" type="in">
+    <tags>
+        <tag name="float or rgb or rgba or vector or vector2"/>
+    </tags>
+    <metadata>
+        <entry key="page" value="ID AOVs"/>
+    </metadata>
+    </port>
+    <port name="aov_id3" type="in">
+    <metadata>
+        <entry key="page" value="ID AOVs"/>
+    </metadata>
+    </port>
+    <port name="id3" type="in">
+    <metadata>
+        <entry key="page" value="ID AOVs"/>
+    </metadata>
+    </port>
+    <port color="0.2471 0.3686 0.5725" name="id3.r" type="in">
+    <tags>
+        <tag name="float or rgb or rgba or vector or vector2"/>
+    </tags>
+    <metadata>
+        <entry key="page" value="ID AOVs"/>
+    </metadata>
+    </port>
+    <port color="0.2471 0.3686 0.5725" name="id3.g" type="in">
+    <tags>
+        <tag name="float or rgb or rgba or vector or vector2"/>
+    </tags>
+    <metadata>
+        <entry key="page" value="ID AOVs"/>
+    </metadata>
+    </port>
+    <port color="0.2471 0.3686 0.5725" name="id3.b" type="in">
+    <tags>
+        <tag name="float or rgb or rgba or vector or vector2"/>
+    </tags>
+    <metadata>
+        <entry key="page" value="ID AOVs"/>
+    </metadata>
+    </port>
+    <port name="aov_id4" type="in">
+    <metadata>
+        <entry key="page" value="ID AOVs"/>
+    </metadata>
+    </port>
+    <port name="id4" type="in">
+    <metadata>
+        <entry key="page" value="ID AOVs"/>
+    </metadata>
+    </port>
+    <port color="0.2471 0.3686 0.5725" name="id4.r" type="in">
+    <tags>
+        <tag name="float or rgb or rgba or vector or vector2"/>
+    </tags>
+    <metadata>
+        <entry key="page" value="ID AOVs"/>
+    </metadata>
+    </port>
+    <port color="0.2471 0.3686 0.5725" name="id4.g" type="in">
+    <tags>
+        <tag name="float or rgb or rgba or vector or vector2"/>
+    </tags>
+    <metadata>
+        <entry key="page" value="ID AOVs"/>
+    </metadata>
+    </port>
+    <port color="0.2471 0.3686 0.5725" name="id4.b" type="in">
+    <tags>
+        <tag name="float or rgb or rgba or vector or vector2"/>
+    </tags>
+    <metadata>
+        <entry key="page" value="ID AOVs"/>
+    </metadata>
+    </port>
+    <port name="aov_id5" type="in">
+    <metadata>
+        <entry key="page" value="ID AOVs"/>
+    </metadata>
+    </port>
+    <port name="id5" type="in">
+    <metadata>
+        <entry key="page" value="ID AOVs"/>
+    </metadata>
+    </port>
+    <port color="0.2471 0.3686 0.5725" name="id5.r" type="in">
+    <tags>
+        <tag name="float or rgb or rgba or vector or vector2"/>
+    </tags>
+    <metadata>
+        <entry key="page" value="ID AOVs"/>
+    </metadata>
+    </port>
+    <port color="0.2471 0.3686 0.5725" name="id5.g" type="in">
+    <tags>
+        <tag name="float or rgb or rgba or vector or vector2"/>
+    </tags>
+    <metadata>
+        <entry key="page" value="ID AOVs"/>
+    </metadata>
+    </port>
+    <port color="0.2471 0.3686 0.5725" name="id5.b" type="in">
+    <tags>
+        <tag name="float or rgb or rgba or vector or vector2"/>
+    </tags>
+    <metadata>
+        <entry key="page" value="ID AOVs"/>
+    </metadata>
+    </port>
+    <port name="aov_id6" type="in">
+    <metadata>
+        <entry key="page" value="ID AOVs"/>
+    </metadata>
+    </port>
+    <port name="id6" type="in">
+    <metadata>
+        <entry key="page" value="ID AOVs"/>
+    </metadata>
+    </port>
+    <port color="0.2471 0.3686 0.5725" name="id6.r" type="in">
+    <tags>
+        <tag name="float or rgb or rgba or vector or vector2"/>
+    </tags>
+    <metadata>
+        <entry key="page" value="ID AOVs"/>
+    </metadata>
+    </port>
+    <port color="0.2471 0.3686 0.5725" name="id6.g" type="in">
+    <tags>
+        <tag name="float or rgb or rgba or vector or vector2"/>
+    </tags>
+    <metadata>
+        <entry key="page" value="ID AOVs"/>
+    </metadata>
+    </port>
+    <port color="0.2471 0.3686 0.5725" name="id6.b" type="in">
+    <tags>
+        <tag name="float or rgb or rgba or vector or vector2"/>
+    </tags>
+    <metadata>
+        <entry key="page" value="ID AOVs"/>
+    </metadata>
+    </port>
+    <port name="aov_id7" type="in">
+    <metadata>
+        <entry key="page" value="ID AOVs"/>
+    </metadata>
+    </port>
+    <port name="id7" type="in">
+    <metadata>
+        <entry key="page" value="ID AOVs"/>
+    </metadata>
+    </port>
+    <port color="0.2471 0.3686 0.5725" name="id7.r" type="in">
+    <tags>
+        <tag name="float or rgb or rgba or vector or vector2"/>
+    </tags>
+    <metadata>
+        <entry key="page" value="ID AOVs"/>
+    </metadata>
+    </port>
+    <port color="0.2471 0.3686 0.5725" name="id7.g" type="in">
+    <tags>
+        <tag name="float or rgb or rgba or vector or vector2"/>
+    </tags>
+    <metadata>
+        <entry key="page" value="ID AOVs"/>
+    </metadata>
+    </port>
+    <port color="0.2471 0.3686 0.5725" name="id7.b" type="in">
+    <tags>
+        <tag name="float or rgb or rgba or vector or vector2"/>
+    </tags>
+    <metadata>
+        <entry key="page" value="ID AOVs"/>
+    </metadata>
+    </port>
+    <port name="aov_id8" type="in">
+    <metadata>
+        <entry key="page" value="ID AOVs"/>
+    </metadata>
+    </port>
+    <port name="id8" type="in">
+    <metadata>
+        <entry key="page" value="ID AOVs"/>
+    </metadata>
+    </port>
+    <port color="0.2471 0.3686 0.5725" name="id8.r" type="in">
+    <tags>
+        <tag name="float or rgb or rgba or vector or vector2"/>
+    </tags>
+    <metadata>
+        <entry key="page" value="ID AOVs"/>
+    </metadata>
+    </port>
+    <port color="0.2471 0.3686 0.5725" name="id8.g" type="in">
+    <tags>
+        <tag name="float or rgb or rgba or vector or vector2"/>
+    </tags>
+    <metadata>
+        <entry key="page" value="ID AOVs"/>
+    </metadata>
+    </port>
+    <port color="0.2471 0.3686 0.5725" name="id8.b" type="in">
+    <tags>
+        <tag name="float or rgb or rgba or vector or vector2"/>
+    </tags>
+    <metadata>
+        <entry key="page" value="ID AOVs"/>
+    </metadata>
+    </port>
+    <port name="out" type="out">
+    <tags>
+        <tag name="shader"/>
+    </tags>
+    </port>
+    <group_parameter name="standard_hair">
+    <string_parameter name="name" value="standard_hair"/>
+    <string_parameter name="nodeType" value="standard_hair"/>
+    <string_parameter name="__lastValue" value="tgz2j6fzujvhsebhoirgywcreai3zewcamnkfs47lkdodtlm5tcyFalse"/>
+    <string_parameter name="__showHiddenParams" value="False"/>
+    <group_parameter name="parameters">
+        <group_parameter name="base">
+        <number_parameter name="enable" value="0"/>
+        <number_parameter name="value" value="1"/>
+        <string_parameter name="type" value="FloatAttr"/>
+        </group_parameter>
+        <group_parameter name="base_color">
+        <number_parameter name="enable" value="0"/>
+        <numberarray_parameter name="value" size="3" tupleSize="3">
+            <number_parameter name="i0" value="1"/>
+            <number_parameter name="i1" value="1"/>
+            <number_parameter name="i2" value="1"/>
+        </numberarray_parameter>
+        <string_parameter name="type" value="FloatAttr"/>
+        </group_parameter>
+        <group_parameter name="melanin">
+        <number_parameter name="enable" value="0"/>
+        <number_parameter name="value" value="1"/>
+        <string_parameter name="type" value="FloatAttr"/>
+        </group_parameter>
+        <group_parameter name="melanin_redness">
+        <number_parameter name="enable" value="0"/>
+        <number_parameter name="value" value="0.5"/>
+        <string_parameter name="type" value="FloatAttr"/>
+        </group_parameter>
+        <group_parameter name="melanin_randomize">
+        <number_parameter name="enable" value="0"/>
+        <number_parameter name="value" value="0"/>
+        <string_parameter name="type" value="FloatAttr"/>
+        </group_parameter>
+        <group_parameter name="roughness">
+        <number_parameter name="enable" value="0"/>
+        <number_parameter name="value" value="0.2"/>
+        <string_parameter name="type" value="FloatAttr"/>
+        </group_parameter>
+        <group_parameter name="roughness_azimuthal">
+        <number_parameter name="enable" value="0"/>
+        <number_parameter name="value" value="0.2"/>
+        <string_parameter name="type" value="FloatAttr"/>
+        </group_parameter>
+        <group_parameter name="roughness_anisotropic">
+        <number_parameter name="enable" value="0"/>
+        <number_parameter name="value" value="0"/>
+        <string_parameter name="type" value="IntAttr"/>
+        </group_parameter>
+        <group_parameter name="ior">
+        <number_parameter name="enable" value="0"/>
+        <number_parameter name="value" value="1.55"/>
+        <string_parameter name="type" value="FloatAttr"/>
+        </group_parameter>
+        <group_parameter name="shift">
+        <number_parameter name="enable" value="0"/>
+        <number_parameter name="value" value="3"/>
+        <string_parameter name="type" value="FloatAttr"/>
+        </group_parameter>
+        <group_parameter name="specular_tint">
+        <number_parameter name="enable" value="0"/>
+        <numberarray_parameter name="value" size="3" tupleSize="3">
+            <number_parameter name="i0" value="1"/>
+            <number_parameter name="i1" value="1"/>
+            <number_parameter name="i2" value="1"/>
+        </numberarray_parameter>
+        <string_parameter name="type" value="FloatAttr"/>
+        </group_parameter>
+        <group_parameter name="specular2_tint">
+        <number_parameter name="enable" value="0"/>
+        <numberarray_parameter name="value" size="3" tupleSize="3">
+            <number_parameter name="i0" value="1"/>
+            <number_parameter name="i1" value="1"/>
+            <number_parameter name="i2" value="1"/>
+        </numberarray_parameter>
+        <string_parameter name="type" value="FloatAttr"/>
+        </group_parameter>
+        <group_parameter name="transmission_tint">
+        <number_parameter name="enable" value="0"/>
+        <numberarray_parameter name="value" size="3" tupleSize="3">
+            <number_parameter name="i0" value="1"/>
+            <number_parameter name="i1" value="1"/>
+            <number_parameter name="i2" value="1"/>
+        </numberarray_parameter>
+        <string_parameter name="type" value="FloatAttr"/>
+        </group_parameter>
+        <group_parameter name="diffuse">
+        <number_parameter name="enable" value="0"/>
+        <number_parameter name="value" value="0"/>
+        <string_parameter name="type" value="FloatAttr"/>
+        </group_parameter>
+        <group_parameter name="diffuse_color">
+        <number_parameter name="enable" value="0"/>
+        <numberarray_parameter name="value" size="3" tupleSize="3">
+            <number_parameter name="i0" value="1"/>
+            <number_parameter name="i1" value="1"/>
+            <number_parameter name="i2" value="1"/>
+        </numberarray_parameter>
+        <string_parameter name="type" value="FloatAttr"/>
+        </group_parameter>
+        <group_parameter name="emission">
+        <number_parameter name="enable" value="0"/>
+        <number_parameter name="value" value="0"/>
+        <string_parameter name="type" value="FloatAttr"/>
+        </group_parameter>
+        <group_parameter name="emission_color">
+        <number_parameter name="enable" value="0"/>
+        <numberarray_parameter name="value" size="3" tupleSize="3">
+            <number_parameter name="i0" value="1"/>
+            <number_parameter name="i1" value="1"/>
+            <number_parameter name="i2" value="1"/>
+        </numberarray_parameter>
+        <string_parameter name="type" value="FloatAttr"/>
+        </group_parameter>
+        <group_parameter name="opacity">
+        <number_parameter name="enable" value="0"/>
+        <numberarray_parameter name="value" size="3" tupleSize="3">
+            <number_parameter name="i0" value="1"/>
+            <number_parameter name="i1" value="1"/>
+            <number_parameter name="i2" value="1"/>
+        </numberarray_parameter>
+        <string_parameter name="type" value="FloatAttr"/>
+        </group_parameter>
+        <group_parameter name="indirect_diffuse">
+        <number_parameter name="enable" value="0"/>
+        <number_parameter name="value" value="1"/>
+        <string_parameter name="type" value="FloatAttr"/>
+        </group_parameter>
+        <group_parameter name="indirect_specular">
+        <number_parameter name="enable" value="0"/>
+        <number_parameter name="value" value="1"/>
+        <string_parameter name="type" value="FloatAttr"/>
+        </group_parameter>
+        <group_parameter name="extra_depth">
+        <number_parameter name="enable" value="0"/>
+        <number_parameter name="value" value="16"/>
+        <string_parameter name="type" value="IntAttr"/>
+        </group_parameter>
+        <group_parameter name="extra_samples">
+        <number_parameter name="enable" value="0"/>
+        <number_parameter name="value" value="0"/>
+        <string_parameter name="type" value="IntAttr"/>
+        </group_parameter>
+        <group_parameter name="aov_id1">
+        <number_parameter name="enable" value="0"/>
+        <string_parameter name="value" value=""/>
+        <string_parameter name="type" value="StringAttr"/>
+        </group_parameter>
+        <group_parameter name="id1">
+        <number_parameter name="enable" value="0"/>
+        <numberarray_parameter name="value" size="3" tupleSize="3">
+            <number_parameter name="i0" value="0"/>
+            <number_parameter name="i1" value="0"/>
+            <number_parameter name="i2" value="0"/>
+        </numberarray_parameter>
+        <string_parameter name="type" value="FloatAttr"/>
+        </group_parameter>
+        <group_parameter name="aov_id2">
+        <number_parameter name="enable" value="0"/>
+        <string_parameter name="value" value=""/>
+        <string_parameter name="type" value="StringAttr"/>
+        </group_parameter>
+        <group_parameter name="id2">
+        <number_parameter name="enable" value="0"/>
+        <numberarray_parameter name="value" size="3" tupleSize="3">
+            <number_parameter name="i0" value="0"/>
+            <number_parameter name="i1" value="0"/>
+            <number_parameter name="i2" value="0"/>
+        </numberarray_parameter>
+        <string_parameter name="type" value="FloatAttr"/>
+        </group_parameter>
+        <group_parameter name="aov_id3">
+        <number_parameter name="enable" value="0"/>
+        <string_parameter name="value" value=""/>
+        <string_parameter name="type" value="StringAttr"/>
+        </group_parameter>
+        <group_parameter name="id3">
+        <number_parameter name="enable" value="0"/>
+        <numberarray_parameter name="value" size="3" tupleSize="3">
+            <number_parameter name="i0" value="0"/>
+            <number_parameter name="i1" value="0"/>
+            <number_parameter name="i2" value="0"/>
+        </numberarray_parameter>
+        <string_parameter name="type" value="FloatAttr"/>
+        </group_parameter>
+        <group_parameter name="aov_id4">
+        <number_parameter name="enable" value="0"/>
+        <string_parameter name="value" value=""/>
+        <string_parameter name="type" value="StringAttr"/>
+        </group_parameter>
+        <group_parameter name="id4">
+        <number_parameter name="enable" value="0"/>
+        <numberarray_parameter name="value" size="3" tupleSize="3">
+            <number_parameter name="i0" value="0"/>
+            <number_parameter name="i1" value="0"/>
+            <number_parameter name="i2" value="0"/>
+        </numberarray_parameter>
+        <string_parameter name="type" value="FloatAttr"/>
+        </group_parameter>
+        <group_parameter name="aov_id5">
+        <number_parameter name="enable" value="0"/>
+        <string_parameter name="value" value=""/>
+        <string_parameter name="type" value="StringAttr"/>
+        </group_parameter>
+        <group_parameter name="id5">
+        <number_parameter name="enable" value="0"/>
+        <numberarray_parameter name="value" size="3" tupleSize="3">
+            <number_parameter name="i0" value="0"/>
+            <number_parameter name="i1" value="0"/>
+            <number_parameter name="i2" value="0"/>
+        </numberarray_parameter>
+        <string_parameter name="type" value="FloatAttr"/>
+        </group_parameter>
+        <group_parameter name="aov_id6">
+        <number_parameter name="enable" value="0"/>
+        <string_parameter name="value" value=""/>
+        <string_parameter name="type" value="StringAttr"/>
+        </group_parameter>
+        <group_parameter name="id6">
+        <number_parameter name="enable" value="0"/>
+        <numberarray_parameter name="value" size="3" tupleSize="3">
+            <number_parameter name="i0" value="0"/>
+            <number_parameter name="i1" value="0"/>
+            <number_parameter name="i2" value="0"/>
+        </numberarray_parameter>
+        <string_parameter name="type" value="FloatAttr"/>
+        </group_parameter>
+        <group_parameter name="aov_id7">
+        <number_parameter name="enable" value="0"/>
+        <string_parameter name="value" value=""/>
+        <string_parameter name="type" value="StringAttr"/>
+        </group_parameter>
+        <group_parameter name="id7">
+        <number_parameter name="enable" value="0"/>
+        <numberarray_parameter name="value" size="3" tupleSize="3">
+            <number_parameter name="i0" value="0"/>
+            <number_parameter name="i1" value="0"/>
+            <number_parameter name="i2" value="0"/>
+        </numberarray_parameter>
+        <string_parameter name="type" value="FloatAttr"/>
+        </group_parameter>
+        <group_parameter name="aov_id8">
+        <number_parameter name="enable" value="0"/>
+        <string_parameter name="value" value=""/>
+        <string_parameter name="type" value="StringAttr"/>
+        </group_parameter>
+        <group_parameter name="id8">
+        <number_parameter name="enable" value="0"/>
+        <numberarray_parameter name="value" size="3" tupleSize="3">
+            <number_parameter name="i0" value="0"/>
+            <number_parameter name="i1" value="0"/>
+            <number_parameter name="i2" value="0"/>
+        </numberarray_parameter>
+        <string_parameter name="type" value="FloatAttr"/>
+        </group_parameter>
+        <group_parameter name="__unused"/>
+    </group_parameter>
+    <group_parameter name="publicInterface">
+        <string_parameter name="namePrefix" value=""/>
+        <string_parameter name="pagePrefix" value=""/>
+        <string_parameter name="nameRegExFind" value=""/>
+        <string_parameter name="nameRegExReplace" value=""/>
+        <string_parameter name="pageRegExFind" value=""/>
+        <string_parameter name="pageRegExReplace" value=""/>
+    </group_parameter>
+    <string_parameter name="forceRefresh" value=""/>
+    </group_parameter>
+</node>
