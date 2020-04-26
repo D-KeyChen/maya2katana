@@ -9,7 +9,7 @@ Easily copy shading nodes from [Maya](http://www.autodesk.com/products/maya/over
    aiBump2d, aiImage, aiMultiply, aiDivide, aiPow, aiLayerShader,  aiSpaceTransform, 
    aiClamp, 
    file, ramp, bump2d, multiplyDivide, blendColors, clamp
-
+<!-- 
 - #### [RenderMan 21.7+](https://renderman.pixar.com/)
   Supported nodes: aaOceanPrmanShader, PxrAdjustNormal, PxrAovLight, PxrAttribute,
   PxrBackgroundDisplayFilter, PxrBackgroundSampleFilter, PxrBakePointCloud, PxrBakeTexture,
@@ -33,7 +33,7 @@ Easily copy shading nodes from [Maya](http://www.autodesk.com/products/maya/over
   PxrRoundCube, PxrSeExpr, PxrShadedSide, PxrShadowDisplayFilter, PxrShadowFilter, PxrSkin,
   PxrSphereLight, PxrSurface, PxrTangentField, PxrTee, PxrTexture, PxrThinFilm, PxrThreshold,
   PxrTileManifold, PxrToFloat, PxrToFloat3, PxrVariable, PxrVary, PxrVolume, PxrVoronoise,
-  PxrWhitePointDisplayFilter, PxrWhitePointSampleFilter, PxrWorley
+  PxrWhitePointDisplayFilter, PxrWhitePointSampleFilter, PxrWorley -->
 
 ### Installation
 
@@ -93,14 +93,16 @@ nodes = KatanaFile.Paste(resulting_xml, group_node)
 ----
 
 ## Arnold 5 escription
-### Incompatible with "Arnold 4" (与阿诺德4不兼容)
+### Incompatible with "Arnold 4" (与"Arnold 4"不兼容)
+### May be incompatible with "RenderMan" (可能与"RenderMan"不兼容)
 ### Using Maya node requires setting up the renderer (使用Maya节点需要设置渲染器)
-Description currently supported: (当前支持的描述)
- 1. Maya File to aiImage (Maya文件转为aiImage)
+Description currently: (当前说明)
+ 1. The texture path will be converted to a ".tx" path (纹理路径将转换为".tx"路径)
+ 2. Maya File to aiImage (Maya文件转为aiImage)
     Supported attributes (支持的属性): Image Name, Color Space, Color Gain, Color Offset
- 2. aiImage add Color Space support
- 3. Maya Ramp to Arnold Ramp_RGB (Maya渐变转为阿诺德渐变)
- 4. Maya BlendColors to Arnold Mix_RGBA (Maya颜色混合转为阿诺德混合颜色)
+ 3. aiImage add Color Space support
+ 4. Maya Ramp to Arnold Ramp_RGB (Maya渐变转为阿诺德渐变)
+ 5. Maya BlendColors to Arnold Mix_RGBA (Maya颜色混合转为阿诺德混合颜色)
 
 <!-- Currently existing problems: (当前存在的问题) -->
  <!-- - Does not convert image format to .TX (不将图像格式转换为 .TX) -->
